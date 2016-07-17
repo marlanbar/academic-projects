@@ -1,0 +1,48 @@
+\section{Respuestas a las preguntas del enunciado}
+
+\subsection{Primera pregunta}
+
+Para asegurar est\'aticamente que las guarda del \textit{if} y el
+\textit{while} sean booleanos, inducimos a la gram\'atica a s\'olo poder
+construir guardas de esa manera. Otros lenguajes de programaci\'on, 
+como \textsc{Haskell}, por ejemplo, poseen un sistema de tipado, que les
+permite chequear en tiempo de compilaci\'on si los tipos de las expresiones
+utilizadas son los correctos.
+
+Un caso distinto es el de \textsc{Python} que no posee tipado est\'atico,
+y, m\'as a\'un, muchos objetos puede evaluarse como booleanos.
+En este caso el problema puede detectarse \'unicamente en tiempo de
+ejecuci\'on.
+
+\subsection{Segunda pregunta}
+
+En el caso de nuestro lenguaje un \texttt{Statement} puede ser una
+asignaci\'on, un \textit{if}, un \textit{while} o un \textit{return}.
+Los \textit{if} y \textit{while} son `contenedores' de sentencias, con lo cual
+podemos analizar el caso asignaci\'on y el caso \textit{return}.
+
+Las asiganciones del lenguaje \textit{MyLanga} hace uso de una variable
+del lado izquierdo y una expresi\'on del lado derecho.
+Las expresiones son funcionales, en el sentido de que no tienen otro efecto
+que devolver un valor. En otros lenguajes (como \textsc{C}), una expresi\'on
+puede contener una asignaci\'on (por ejemplo \texttt{a = (b=4);}).
+En el caso en que las expresiones puedan contener asignaciones es necesario
+un separador expl\'icito, como el punto y coma. Esto se debe a que la secuencia
+\begin{verbatim}
+a = b
+c = 4
+\end{verbatim}
+puede interpretarse como \texttt{a=(bc=4)} o como
+\texttt{a=b ; c=4}.
+
+En nuestro caso las expresiones no pueden contener asignaciones.
+
+\subsection{Tercera pregunta}
+En nuestra implementaci\'on no importa el orden en que est\'an definidas las
+funciones dentro del c\'odigo. Esto se debe a que primero se parsea todo
+el programa, y se genera un \'arbol con las declaraciones de funciones
+y el \texttt{plot}. Luego, para ejecutar cada funci\'on, se la busca
+y se la ejecuta.
+De forma an\'aloga, se soporta recursi\'on, pues nuevamente se busca la
+funci\'on que se est\'a ejecutando y se la ejecuta con un contexto
+nuevo.

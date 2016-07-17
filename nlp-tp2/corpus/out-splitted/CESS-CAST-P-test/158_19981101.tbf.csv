@@ -1,0 +1,12 @@
+EEUU	np00000	B-NP
+celebrará	vmif3s0	B-VP
+elecciones	ncfp000	B-NP
+para	sps00	O
+renovar	vmn0000	O
+parcialmente	rg	O
+la	da0fs0	B-NP
+Cámara_de_Representantes	np00000	I-NP
+y	cc	I-NP
+el	da0ms0	I-NP
+Senado	np00000	I-NP
+.	fp	O

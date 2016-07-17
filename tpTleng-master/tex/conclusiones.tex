@@ -1,0 +1,18 @@
+\section{Conclusiones}
+
+Los gr\'aficos obtenidos son pr\'acticamente id\'enticos a los provistos
+por la c\'atedra. Al comparar los puntos obtenidos con los provistos por la
+c\'atedra vemos diferencias de un orden muy peque\~no. Concluimos que se deben
+al orden de evaluaci\'on del lenguaje utilizado para interpretar y a la precisi\'on
+utilizada en el int\'erprete, en nuestro caso, \texttt{Double}.
+
+A su vez se obtuvo el comportamiento esperado en los archivos de prueba con 
+errores, siendo estos rechazados en las etapas correctas con los errores
+correctos. 
+
+Con respecto a las herramientas, el implementar el \textit{lexer}, \textit{parser} e int\'erprete
+en \textsc{Haskell} nos result\'o muy ventajoso pues las tareas son intrinsecamente
+recursivas. Esto se refleja en que ninguno de los archivos supera
+las $200$ l\'ineas de c\'odigo y en que el mismo resulta claro, declarativo y
+consiso. No podemos decir lo mismo de nuestro primer intento de implementar el
+int\'erprete en \textsc{C++}.

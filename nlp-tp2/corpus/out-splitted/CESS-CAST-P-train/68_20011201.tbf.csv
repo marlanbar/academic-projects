@@ -1,0 +1,57 @@
+LAS	da0fp0	B-NP
+AUTORIDADES	ncfp000	I-NP
+de	sps00	I-NP
+Agadir	np00000	I-NP
+han	vaip3p0	B-VP
+impuesto	vmp00sm	I-VP
+una	di0fs0	B-NP
+multa	ncfs000	I-NP
+de	sps00	I-NP
+38,5		I-NP
+millones	ncmp000	I-NP
+de	sps00	I-NP
+pesetas	zm	I-NP
+(	fpa	B-NP
+232.000		I-NP
+euros	zm	I-NP
+)	fpt	I-NP
+al	spcms	O
+Lameiro_Uno	np00000	B-NP
+,	fc	I-NP
+un	di0ms0	I-NP
+pesquero	ncms000	I-NP
+gallego	aq0ms0	I-NP
+con	sps00	I-NP
+13		I-NP
+tripulantes	nccp000	I-NP
+,	fc	O
+acusado	aq0msp	O
+de	sps00	O
+faenar	vmn0000	O
+sin	sps00	O
+licencia	ncfs000	B-NP
+en	sps00	O
+aguas	ncfp000	B-NP
+marroquís	aq0cp0	I-NP
+.	fp	O
+Fuentes	ncfp000	B-NP
+diplomáticas	aq0fp0	I-NP
+españolas	aq0fp0	I-NP
+indicaron	vmis3p0	B-VP
+que	cs	O
+los	da0mp0	B-NP
+satélites	ncmp000	I-NP
+demuestran	vmip3p0	B-VP
+que	cs	O
+el	da0ms0	B-NP
+barco	ncms000	I-NP
+no	rn	O
+podía	vmii3s0	B-VP
+estar	vmn0000	I-VP
+faenando	vmg0000	I-VP
+el	da0ms0	B-NP
+día_25		I-NP
+en	sps00	O
+la	da0fs0	B-NP
+zona	ncfs000	I-NP
+.	fp	O

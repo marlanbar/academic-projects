@@ -1,0 +1,42 @@
+Correos	np00000	B-NP
+adjudica	vmip3s0	B-VP
+a	sps00	O
+Siemens	np00000	B-NP
+la	da0fs0	B-NP
+automatización	ncfs000	I-NP
+postal	aq0cs0	I-NP
+.	fp	O
+La	da0fs0	B-NP
+multinacional	ncfs000	I-NP
+alemana	aq0fs0	I-NP
+se	p0300000	O
+encargará	vmif3s0	B-VP
+del	spcms	O
+suministro	ncms000	B-NP
+y	cc	I-NP
+mantenimiento	ncms000	I-NP
+de	sps00	I-NP
+42		I-NP
+equipos	ncmp000	I-NP
+de	sps00	I-NP
+tratamiento	ncms000	I-NP
+automático	aq0ms0	I-NP
+de	sps00	I-NP
+envíos	ncmp000	I-NP
+,	fc	I-NP
+por	sps00	I-NP
+un	di0ms0	I-NP
+importe	ncms000	I-NP
+de	sps00	I-NP
+7.585		I-NP
+millones	ncmp000	I-NP
+,	fc	O
+que	pr0cn000	O
+tratarán	vmif3p0	B-VP
+11		B-NP
+millones	ncmp000	I-NP
+de	sps00	I-NP
+envíos	ncmp000	I-NP
+al	spcms	I-NP
+día	ncms000	I-NP
+.	fp	O

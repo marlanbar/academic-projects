@@ -1,0 +1,19 @@
+Ej 1: 
+* Agregado metodo #= a la clase Eleccion utilizando el mensaje class para comparar.
+* Quitado el metodo #= a las sublcases de Eleccion.
+
+Ej 2:
+* Agregado metodo #eleccionSuperadora a la clase Eleccion: recorre toda las subclases de Eleccion y agarra alguna de las que cumple que le gana a si misma.
+* Agregados todos los metodos de #ganadorContra.. a todas las subclases de Eleccion.
+
+Ej 5:
+
+* Modificada los mensajes de "Gano:..." "Perdio:...", etc en Jugador. Dejan de estar implementados.
+
+Ej 7: 
+* Modificada eleccion del jugador aleatorio: ya no esta más fijado el nextInt sino que representa el tamaño de la colección de subclases.
+
+
+Ej 8: 
+* Eliminados tests 9 y 11 que eran los conflictivos (los que usaban al jugador humano). Al test 10 lo renombre como test 09 para que sigan el orden.
+

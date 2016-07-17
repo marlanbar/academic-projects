@@ -1,0 +1,7 @@
+Existian varias formas de escribir Queries para lograr el resultado deseado.
+
+Quizas la mas sencilla era collectar las partes por separada y despues unirlas usando python. Tambien existen formas dentro de una misma consulta SQL, utilizando queries recursivas o alguna otra variente (como las que figuran en ***https://www.simple-talk.com/sql/t-sql-programming/concatenating-row-values-in-transact-sql/***)
+
+De todas maneras preferimos usar una de las ventajas de la herramienta SQLite y utilizar la funcion Group_concatenate(), que permite facilmente agrupar campos transformandolos en un string. Es importante considerar que el buffer del mismo podria no ser suficiente en un futuro, caso en el cual deberia modificarse el tama;o del ismo en forma manual.
+
+Con esto logramos llegar al resultado deseado sin nunca salir del query.

@@ -1,0 +1,90 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 4.2411875 
+tiers? <exists> 
+size = 1 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "" 
+        xmin = 0 
+        xmax = 4.2411875 
+        intervals: size = 19 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.7441725260941912 
+            text = "" 
+        intervals [2]:
+            xmin = 0.7441725260941912 
+            xmax = 0.9019070183289631 
+            text = "-a" 
+        intervals [3]:
+            xmin = 0.9019070183289631 
+            xmax = 1.0408635948215004 
+            text = "al" 
+        intervals [4]:
+            xmin = 1.0408635948215004 
+            xmax = 1.1347531735326744 
+            text = "" 
+        intervals [5]:
+            xmin = 1.1347531735326744 
+            xmax = 1.2924876657674464 
+            text = "ma" 
+        intervals [6]:
+            xmin = 1.2924876657674464 
+            xmax = 1.4276886591115368 
+            text = "a-" 
+        intervals [7]:
+            xmin = 1.4276886591115368 
+            xmax = 1.803246973956232 
+            text = "" 
+        intervals [8]:
+            xmin = 1.803246973956232 
+            xmax = 1.9346923841518753 
+            text = "-l" 
+        intervals [9]:
+            xmin = 1.9346923841518753 
+            xmax = 2.032337546011496 
+            text = "la" 
+        intervals [10]:
+            xmin = 2.032337546011496 
+            xmax = 2.190072038246268 
+            text = "am" 
+        intervals [11]:
+            xmin = 2.190072038246268 
+            xmax = 2.3478065304810403 
+            text = "ma" 
+        intervals [12]:
+            xmin = 2.3478065304810403 
+            xmax = 2.5168077721611533 
+            text = "a-" 
+        intervals [13]:
+            xmin = 2.5168077721611533 
+            xmax = 2.8585658386698256 
+            text = "" 
+        intervals [14]:
+            xmin = 2.8585658386698256 
+            xmax = 3.023811497201492 
+            text = "-s" 
+        intervals [15]:
+            xmin = 3.023811497201492 
+            xmax = 3.17403482313937 
+            text = "sa" 
+        intervals [16]:
+            xmin = 3.17403482313937 
+            xmax = 3.3242581490772483 
+            text = "al" 
+        intervals [17]:
+            xmin = 3.3242581490772483 
+            xmax = 3.4481923929759977 
+            text = "" 
+        intervals [18]:
+            xmin = 3.4481923929759977 
+            xmax = 3.594660135765429 
+            text = "" 
+        intervals [19]:
+            xmin = 3.594660135765429 
+            xmax = 4.2411875 
+            text = "" 

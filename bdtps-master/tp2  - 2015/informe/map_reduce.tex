@@ -1,0 +1,218 @@
+\section{Map-Reduce.}
+Para la resolución de los Map-Reduce tuvimos que cargar diferentes archivos .json. Esto se realizo con las siguientes instrucciones:
+\begin{lstlisting}
+mongoimport --db DB --collection COLLECTION --file
+disposiciones_201*.json --jsonArray
+
+Por ejemplo:
+mongoimport --db tp2 --collection disposiciones --file
+disposiciones_2014.json --jsonArray
+\end{lstlisting}
+
+Luego implementamos las diferentes funciones de map y de reduce en un archivo aparte por claridad y comidad, llamado \texttt{code.js}.
+Luego para cargar el código se puede hacer load("code.js") y podremos referenciar a las funciones implementadas en el archivo desde la consola de mongo.
+
+\subsection{Disposiciones de tipo resolución en Abril de 2013.}
+\textbf{Map:}
+La idea de esta función es, si el documento dado es de tipo resolución y tiene fecha abril del 2013,
+emitir("resolucion",cant=1). De esta forma estamos permitiendo que solo emitan los documentos que nos
+interesa contar.
+
+\begin{lstlisting}
+var map1 = function(){
+  var date = this["FechaBOJA"].split('/')
+  if(this["Tipo"] == "Resoluciones" && date[1]==4 && date[2]==2013){
+    emit(this["Tipo"],1)
+  }
+}
+\end{lstlisting}
+
+\textbf{Reduce:}
+La idea del reduce es, sumar los valores que nos pasan, ya sean unos que vienen del map,
+o valores parciales que vienen de otro reduce, lo que genera que este reduce sea combinable y se pueda
+aplicar varias veces.
+
+\begin{lstlisting}
+var reduce1 = function(key,values){
+  return Array.sum(values)
+}
+\end{lstlisting}
+
+Una vez definadas las dos funciones podemos llamar a la función de map-reduce de la forma:
+\begin{lstlisting}
+db.disposiciones.mapReduce(map1,reduce1,{out: parte2a})
+\end{lstlisting}
+
+Lo que nos devuelve una collecion llamada \texttt{parte2a} con nuestra respuesta:
+
+\begin{lstlisting}
+> db.parte2a.find()
+{ "_id" : "Resoluciones", "value" : 607 }
+\end{lstlisting}
+
+\subsection{Disposiciones de cada tipo.}
+\textbf{Map:}
+La idea de este map es, para cada documento, emitir su tipo y como valor un 1, para poder contar las ocurrencias
+de cada tipo de documento.
+
+\begin{lstlisting}
+var map2 = function(){
+	emit(this["Tipo"],1)
+}
+\end{lstlisting}
+
+\textbf{Reduce:}
+Esta función de reduce al igual que la anterior suma los valores que se le pasan y retorna la suma. De esta forma vamos a terminar
+obteniendo la cantidad de ocurrencias de cada tipo posible de documento.
+\begin{lstlisting}
+var reduce2 = function(key,values){
+	return Array.sum(values)
+}
+\end{lstlisting}
+
+Una vez definadas las dos funciones podemos llamar a la función de map-reduce de la forma:
+\begin{lstlisting}
+db.disposiciones.mapReduce(map2,reduce2,{out: parte2b})
+\end{lstlisting}
+
+Lo que nos devuelve una collecion llamada \texttt{parte2b} con nuestra respuesta:
+
+\begin{lstlisting}
+db.parte2b.find()
+{ "_id" : "", "value" : 3 }
+{ "_id" : "Acuerdos", "value" : 2790 }
+{ "_id" : "Acuerdos del Consejo de Gobierno", "value" : 160 }
+{ "_id" : "Anuncios", "value" : 17226 }
+{ "_id" : "Candidaturas", "value" : 1 }
+{ "_id" : "Certificaciones", "value" : 72 }
+{ "_id" : "Circular", "value" : 1 }
+{ "_id" : "Conflictos Positivos", "value" : 6 }
+{ "_id" : "Correcciones de Erratas", "value" : 59 }
+{ "_id" : "Correcciones de Errores", "value" : 321 }
+{ "_id" : "Correcciones de erratas", "value" : 8 }
+{ "_id" : "Correcciones de errores", "value" : 44 }
+{ "_id" : "Corrección de errores", "value" : 1 }
+{ "_id" : "Correción de errores", "value" : 1 }
+{ "_id" : "Cuestiones de Inconstitucionalidad", "value" : 1 }
+{ "_id" : "Decretos", "value" : 828 }
+{ "_id" : "Decretos Legislativos", "value" : 5 }
+{ "_id" : "Decretos del Presidente", "value" : 13 }
+{ "_id" : "Decretos-leyes", "value" : 15 }
+{ "_id" : "Edictos", "value" : 3223 }
+{ "_id" : "Instrucciones", "value" : 2 }
+{ "_id" : "Leyes", "value" : 12 }
+{ "_id" : "Notificaciones", "value" : 768 }
+{ "_id" : "Orden", "value" : 4 }
+{ "_id" : "Otros", "value" : 45 }
+{ "_id" : "Reales Decretos", "value" : 5 }
+{ "_id" : "Recursos de Inconstitucionalidad", "value" : 7 }
+{ "_id" : "Requisitorias", "value" : 2 }
+{ "_id" : "Resoluciones", "value" : 13956 }
+{ "_id" : "Órdenes", "value" : 2061 }
+{ "_id" : "Órdenes de Comision Delegada", "value" : 2 }
+\end{lstlisting}
+
+\subsection{Fecha mas citada.}
+
+\textbf{Map:}
+La idea de esta función es primero, parsear las fechas que encontramos en el documento exceptuando las que encontremos en la descripción (es decir la fechaBOJA y la fechaDisposicion) y hacer que sus formatos sean compatibles entre si.
+Luego una vez obtenidas las fechas, emitimos una vez por cada fecha, tomando como clave la fecha con formato compatible y como valor un 1.
+De esta forma podremos contar las ocurrencias de cada una de las fechas que aparecen citadas.
+
+\begin{lstlisting}
+var map3 = function(){
+	var date = (this["FechaDisposicion"].split('T'))[0].
+		split('-').reverse().join('/');
+	emit(date,1);
+	emit(this["FechaBOJA"],1);
+}
+\end{lstlisting}
+\textbf{Reduce:}
+La idea de este reduce al igual que los anteriores es simplemente sumar los valores que recibe.
+
+\begin{lstlisting}
+var reduce3 = function(key,values){
+	return Array.sum(values)
+}
+\end{lstlisting}
+Una vez definadas las dos funciones podemos llamar a la función de map-reduce de la forma:
+
+\begin{lstlisting}
+db.disposiciones.mapReduce(map3,reduce3,{out: parte2c})
+\end{lstlisting}
+
+Una vez ejecutado el mapReduce tendremos en la coleccion llamada \texttt{parte2c} todas las fechas citadas con sus respectivas cantidades de ocurrencias. Luego una vez tenemos esa informacion, lo unico que nos falta hacer es ordenar esta coleccion por cantidad de ocurrencias de manera descendente y quedarnos con el primer elemento, es decir:
+
+\begin{lstlisting}
+db.parte2c.find().sort({value : -1}).limit(1)
+{ "_id" : "12/06/2012", "value" : 364 }
+\end{lstlisting}
+
+\subsection{Mayor cantidad de páginas por cada tipo.}
+
+\textbf{Map:}
+Lo que realiza la funcion map es, primero calcula la cantidad de paginas q ocupa el documento dado y luego emite su tipo como clave y la cantidad de paginas calculada como valor. Esto nos va a permitir calcular para cada tipo de documento, su máxima cantidad de paginas utilizada.
+
+\begin{lstlisting}
+var map4 = function(){
+	var cantPags = this["PaginaFinal"] - this["PaginaInicial"] + 1
+	emit(this["Tipo"],cantPags)
+}
+\end{lstlisting}
+\textbf{Reduce:}
+Esta función busca el maximo entre todos los valores que le pasan y lo devuelve, al emitir lo mismo que recibe este reduce tambien
+es combinable y se puede aplicar mas de una vez.
+\begin{lstlisting}
+var reduce4 = function(key,values){
+	var cantPagsMax = 0;
+	for (var i=0; i < values.length; i++){
+		if(values[i] > cantPagsMax){
+			cantPagsMax = values[i];
+		}
+	}
+	return(cantPagsMax);
+}
+\end{lstlisting}
+
+Una vez definadas las dos funciones podemos llamar a la función de map-reduce de la forma:
+
+\begin{lstlisting}
+db.disposiciones.mapReduce(map4,reduce4,{out: parte2d})
+\end{lstlisting}
+
+Luego, en la coleccion \texttt{parte2d} encontraremos nuestra respuesta, es decir para cada tipo de documento la cantidad máxima de paginas utilizada por algun documento suyo.
+
+\begin{lstlisting}
+> db.parte2d.find()
+{ "_id" : "", "value" : 16 }
+{ "_id" : "Acuerdos", "value" : 12 }
+{ "_id" : "Acuerdos del Consejo de Gobierno", "value" : 83 }
+{ "_id" : "Anuncios", "value" : 393 }
+{ "_id" : "Candidaturas", "value" : 68 }
+{ "_id" : "Certificaciones", "value" : 47 }
+{ "_id" : "Circular", "value" : 3 }
+{ "_id" : "Conflictos Positivos", "value" : 1 }
+{ "_id" : "Correcciones de Erratas", "value" : 174 }
+{ "_id" : "Correcciones de Errores", "value" : 99 }
+{ "_id" : "Correcciones de erratas", "value" : 10 }
+{ "_id" : "Correcciones de errores", "value" : 5 }
+{ "_id" : "Corrección de errores", "value" : 1 }
+{ "_id" : "Correción de errores", "value" : 1 }
+{ "_id" : "Cuestiones de Inconstitucionalidad", "value" : 1 }
+{ "_id" : "Decretos", "value" : 492 }
+{ "_id" : "Decretos Legislativos", "value" : 37 }
+{ "_id" : "Decretos del Presidente", "value" : 3 }
+{ "_id" : "Decretos-leyes", "value" : 139 }
+{ "_id" : "Edictos", "value" : 48 }
+{ "_id" : "Instrucciones", "value" : 3 }
+{ "_id" : "Leyes", "value" : 194 }
+{ "_id" : "Notificaciones", "value" : 11 }
+{ "_id" : "Orden", "value" : 7 }
+{ "_id" : "Otros", "value" : 65 }
+{ "_id" : "Reales Decretos", "value" : 1 }
+{ "_id" : "Recursos de Inconstitucionalidad", "value" : 1 }
+{ "_id" : "Requisitorias", "value" : 1 }
+{ "_id" : "Resoluciones", "value" : 454 }
+{ "_id" : "Órdenes", "value" : 634 }
+{ "_id" : "Órdenes de Comision Delegada", "value" : 2 }
+\end{lstlisting}

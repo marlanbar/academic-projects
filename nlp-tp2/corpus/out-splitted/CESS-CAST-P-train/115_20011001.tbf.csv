@@ -1,0 +1,38 @@
+Unas	di0fp0	B-NP
+400		I-NP
+personas	ncfp000	I-NP
+de	sps00	I-NP
+ayuntamientos	ncmp000	I-NP
+de	sps00	I-NP
+toda	di0fs0	I-NP
+España	np00000	I-NP
+participan	vmip3p0	B-VP
+del	spcms	O
+día_3		B-NP
+al	spcms	I-NP
+5		I-NP
+en	sps00	O
+Blanes	np00000	B-NP
+en	sps00	O
+unas	di0fp0	B-NP
+jornadas	ncfp000	I-NP
+para	sps00	O
+aplicar	vmn0000	O
+las	da0fp0	B-NP
+nuevas	aq0fp0	I-NP
+tecnologías	ncfp000	I-NP
+en	sps00	O
+la	da0fs0	B-NP
+Administración	np00000	I-NP
+local	aq0cs0	I-NP
+.	fp	O
+A	sps00	O
+la	da0fs0	B-NP
+cita	ncfs000	I-NP
+acuden	vmip3p0	B-VP
+16		B-NP
+empresas	ncfp000	I-NP
+y	cc	I-NP
+39		I-NP
+conferenciantes	nccp000	I-NP
+.	fp	O

@@ -1,0 +1,40 @@
+\section{Introducci\'on}
+
+    El objetivo de este trabajo pr\'actico es implementar un int\'erprete
+de un lenguaje de programaci\'on propio, \textit{MyLanga}, que permita graficar funciones.
+Para ello creamos 
+una gram\'atica basandonos en la especificaci\'on coloquial dada por la 
+c\'atedra. 
+Luego, utilizando las herramientas \textsc{Alex} y \textsc{Happy} generamos
+un \textit{parser} para \textit{MyLanga}. Finalmente utilizamos la estructura generada de
+dicho \textit{parser} para interpretarla y generar los puntos de las funciones a graficar.
+
+    El lenguaje \textit{MyLanga} es un lenguaje de \textit{scripting}, imperativo,
+con una sintaxis semejante a la de \textsc{Python} o \textsc{C}. Se puede hacer
+uso de comentarios multilinea, pero las funcionalidades son acotadas:
+no se puede hacer uso de variables globales y las funciones poseen trasparencia
+referencial\footnote{Si se las llama dos veces con los mismos argumentos se obtendr\'a
+dos veces el mismo resultado.} por ejemplo.
+M\'as all\'a de esto, el lenguaje es Turing-completo pues implementa \textit{if},
+\textit{while} e, incluso, en el caso de nuestra implementaci\'on, recursi\'on.
+
+    \textsc{Alex} es un analizador l\'exico (de ahora en m\'as \textit{lexer})
+basado en expresiones regulares e implementado
+en \textsc{Haskell}. Es el an\'alogo a \textsc{Flex} de \textsc{C/C++}.
+Permite definir los \textit{tokens}
+de la gram\'atica utilizando expresiones regulares. Cada token se denota de
+la forma: $regexp$ \{ $code$ \}, donde esto quiere decir: ``si el input es $regexp$
+ejecut\'a $code$''.
+
+    \textsc{Happy} es un generador de \textit{parser} implementado en \textsc{Haskell},
+an\'alogo a la 
+herramienta \textsc{yacc}. Se deben especificar los \textit{tokens} de la gram\'atica,
+el m\'odulo del \textit{lexer}, y las pr\'oducciones escritas en notaci\'on
+\textsc{BNF}, junto con c\'odigo \textsc{Haskell}, esto es: 
+$V_n$ : $(V_n|V_t)^{*}$ \{ $code$ \} 
+
+    El int\'erprete del lenguaje se implement\'o en \textsc{Haskell}, el mismo utiliza el
+\textit{parser} generado por \textsc{Happy}, que a su vez utiliza el \textit{lexer} generado
+por \textsc{Alex}, y ejecuta el c\'odigo que se le pasa. 
+
+

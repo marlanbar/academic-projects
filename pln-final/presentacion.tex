@@ -1,0 +1,267 @@
+\documentclass[spanish]{beamer}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+\usecolortheme{seahorse}
+
+\title{Parsing de dependencias}
+\subtitle{Trabajo Práctico Final\\Introducción al Procesamiento del Lenguaje Natural}
+\author{Ramiro Camino, Guillermo Alejandro Gallardo Diez,\\Martín Langberg, Fabrizio Borghini}
+\institute{Universidad de Buenos Aires}
+\date{Segundo Cuatrimestre del 2014}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Introducción}
+\begin{itemize}
+\item Parsing de dependencias: cadena $\rightarrow$ árbol de dependencias.
+\item Vamos a estudiar los aportes de Joakim Nivre.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Grafo de dependencias (1)}
+\begin{itemize}
+    \item \textbf{string de entrada}: $w = w_1\dots w_n$
+    \item \textbf{intervalo}: $[i,j] = \{w_k : i\leq  k\leq  j\}$
+    \item \textbf{grafo de dependencias}: $G = (V_w, E)$
+    \begin{itemize}
+        \item $V_w = [1,n]$
+        \item $E\subseteq V_w$x$V_w$
+    \end{itemize}
+    \item \textbf{link de dependencia}: $(w_i,w_j)\in E$
+    \begin{itemize}
+        \item $w_i$ es el \textbf{padre} (o \textbf{cabeza}) de $w_j$
+        \item $w_j$ es \textbf{hijo} de $w_i$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Grafo de dependencias (2)}
+\begin{itemize}
+    \item $(w_i,w_j)\in E$ si el link $(w_i,w_j)$ existe
+    \item $w_i\leftrightarrow  w_j\in E$ si existe alguno de los links entre ambos tokens
+    \item $w_i\rightarrow * w_j\in E$ si existe un camino dirigido de $w_i$ a $w_j$
+    \item $w_i\leftrightarrow * w_j\in E$ si existe alguno de los caminos dirigidos entre ambos tokens
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Proyección de un nodo}
+\begin{itemize}
+    \item Conjunto de dependencias reflexivo transitivas.
+    \item Conjunto de nodos a los que puede llegar.
+\end{itemize}
+\[\lfloor w_i\rfloor = \{w_j\in V : w_i \rightarrow * w_j\}\]
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Bosque y Árbol de dependencias}
+\begin{itemize}
+\item \textbf{Bosque de dependencias}: Grafo de dependencias que
+\begin{itemize}
+    \item es acíclico y
+    \item todo nodo posee un solo padre.
+\end{itemize}
+\item \textbf{Árbol de dependencias}: Bosque con un solo nodo raíz.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Bosque proyectivo}
+\begin{itemize}
+    \item $\lfloor w_i\rfloor$ es un intervalo para cada palabra $w_i\in [1,n]$.
+    \item $(w_i \leftrightarrow w_k \wedge w_i < w_j < w_k) \Rightarrow (w_i \rightarrow * w_j \vee w_k \rightarrow * w_j)$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Grafo de dependencias bien formado}
+$G$ \textbf{bien formado} $\Leftrightarrow$ $G$ es un árbol de dependencias proyectivo.
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Planaridad}
+\begin{itemize}
+    \item Sean $(w_i,w_k)$, $(w_j,w_l)$ links de dependencia:
+    \begin{itemize}
+        \item sin pérdida de generalidad asumimos $min(i,k) \leq min(j,l)$,
+        \item son \textbf{links cruzados} $\Leftrightarrow min(i,k)\leq min(j,l)\leq max(i,k)\leq max(j,l)$.
+    \end{itemize} 
+    \item \textbf{Grafo de dependencias planar}: no posee links cruzados.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Multiplanaridad}
+Un grafo de dependencias $G = (V,E)$ es \textbf{m-planar} $\Leftrightarrow$ existen grafos de dependencias planares $G_1 = (V,E_1), \dots, G_m = (V,E_m)$ tales que $E = \bigcup_{i=1}^m E_i$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones Sistema de transiciones (1)}
+Representa un parser como un grafo donde:
+\begin{itemize}
+    \item Los nodos son estados o configuraciones del parser.
+    \item Las aristas son transiciones entre estados u operaciones elementales que cambian la configuración del parser.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Sistema de transiciones (2)}
+Formalmente es una tupla $S = <C,T,c_s,C_t>$ donde:
+\begin{itemize}
+\item $C$ es un conjunto de posibles configuraciones.
+\item $T$ es un conjunto de transiciones tales que $t \in T | t: C\rightarrow C$.
+\item $c_s$ es una función que mapea cada posible entrada a una configuración. Es decir $c_s(w)\in C$.
+\item $C_t\subseteq C$ es un conjunto de configuraciones terminales. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definiciones: Oráculo}
+Un \textbf{oráculo} es una función $o: C\rightarrow T$, que para cada configuración determina que transición realizar.
+\end{frame}
+
+\begin{frame}
+\frametitle{Inductive Dependency Parsing (Malt Parser)}
+\begin{itemize}
+\item \textit{Data-driven}
+\item Determinístico de orden lineal
+\item Se puede representar utilizando una tupla 
+$<\Sigma_0,\Sigma_1,B,A>$ donde $\Sigma_0$ es la pila activa, $\Sigma_1$ la pila inactiva, $B$ es el buffer de lectura y $A$ el conjunto de dependencias que se derivan
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Inductive Dependency Parsing (Malt Parser): Transiciones}
+\begin{itemize}
+\item \textbf{Inicial}: $c_s(w_1\dots w_n) = <[], [w_1\dots w_n],\emptyset>$
+\item \textbf{Terminal}: $C_t = \{<\Sigma,[],A>\in C\}$
+\item \textbf{Transiciones}:   
+    \begin{itemize}
+    \item SHIFT:      $<\Sigma,w_i|B,A> \hspace{0.2cm} \rightarrow \hspace{0.2cm} <\Sigma|w_i,B,A>$
+    \item REDUCE:     $<\Sigma|w_i,B,A> \hspace{0.2cm} \rightarrow \hspace{0.2cm} <\Sigma,B,A >$ \\
+solo si $\exists k | (w_k,w_j)\in A$ 
+    \item LEFT-ARC:   $<\Sigma|w_i,w_j|B,A> \hspace{0.2cm} \rightarrow \hspace{0.2cm} <\Sigma,w_j|B,A\cup \{(w_j,w_i)\}>$ \\
+solo si $\not\exists k | (w_k,w_i)\in A$
+    \item RIGHT-ARC: $<\Sigma|w_i,w_j|B,A> \hspace{0.2cm}\rightarrow \hspace{0.2cm} 
+<\Sigma|w_i|w_j,B,A\cup \{(w_i,w_j)\}>$ \\ 
+solo si $\not\exists k | (w_k,w_j)\in A$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Inductive Dependency Parsing (Malt Parser): Algoritmo de Covington}
+\begin{itemize}
+\item Alternativa: Usar una lista en vez de una pila, es decir, poder enlazar cualquier token pasado con el siguiente token del input. Esto permite admitir dependencias no proyectivas, pero tiene un costo cuadrático en función del tamaño del input.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Inductive Dependency Parsing (Malt Parser): Dependencias pseudo-proyectivas}
+\begin{enumerate}
+\item Cuando entrena, si encuentra un grafo no proyectivo, lo transforma moviendo hacia arriba los ejes cruzados hasta que no estén cruzados, y agrega anotaciones en los ejes para dejar constancia de esta transformación.
+\item Cuando parsea trabaja como siempre.
+\item Obtiene grafos de dependencia proyectivos pero con etiquetas enriquecidas.
+\item Al final si el grafo tiene anotaciones trata de invertir la transformación para obtener un grafo no proyectivo.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Parser for 2-planar dependency structures}
+\begin{itemize}
+\item Se pueden cubrir un 99\% de las frases en los treebanks más importantes utilizando grafos 2-planares al momento de generar las dependencias
+\item El parser se representa utilizando una tupla.
+$<\Sigma_0,\Sigma_1,B,A>$ donde $\Sigma_0$ es la pila activa, $\Sigma_1$ la pila inactiva, $B$ es el buffer de lectura y $A$ el conjunto de dependencias que se derivan. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Parser for 2-planar dependency structures: Transiciones}
+\begin{itemize}
+\item \textbf{Inicial}: $c_s(w_1\dots w_n) = <[],[],[w_1\dots w_n],\emptyset>$
+\item \textbf{Terminal}: $C_t = \{<\Sigma_0,\Sigma_1,[],A>\in C\}$
+\item \textbf{Transiciones}:   
+    \begin{itemize}
+    \item SHIFT:      $<\Sigma_0,\Sigma_1,w_i|B,A> \hspace{0.2cm} \rightarrow \hspace{0.2cm} 
+<\Sigma_0|w_i,\Sigma_1|w_i,B,A>$
+    \item REDUCE:     $<\Sigma_0|w_i,\Sigma_1,B,A> \hspace{0.2cm} \rightarrow \hspace{0.2cm} 
+<\Sigma_0,\Sigma_1,B,A>$ 
+    \item LEFT-ARC:   $<\Sigma_0|w_i,\Sigma_1,w_j|B,A> \hspace{0.2cm} \rightarrow \hspace{0.2cm} 
+<\Sigma_0|w_i,\Sigma_1,w_j|B,A\cup \{(w_j,w_i)\}>$ \\
+solo si $\not\exists k | (w_k,w_i)\in A$ y no exista $w_i \leftrightarrow * w_j\in A$
+    \item RIGHT-ARC: $<\Sigma_0|w_i,\Sigma_1,w_j|B,A> \hspace{0.2cm}\rightarrow \hspace{0.2cm} 
+<\Sigma_0|w_i,\Sigma_1,w_j|B,A\cup \{(w_i,w_j)\}>$ \\ 
+solo si $\not\exists k | (w_k,w_j)\in A$ y no exista $w_i \leftrightarrow * w_j\in A$
+    \item SWITCH: $<\Sigma_0,\Sigma_1,B,A> \hspace{0.2cm} \rightarrow \hspace{0.2cm} 
+<\Sigma_1,\Sigma_0,B,A>$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparando Parsers: En teoría}
+\begin{itemize}[<+->]
+\item En el parser para estructuras de dependencias 2-planar las 
+transiciones ARC y REDUCE se realizan solo en la pila activa.
+\item SHIFT saca el elemento del buffer al igual que antes pero ahora lo guarda en ambas pilas.
+\item REDUCE ya no posee restricciones.
+\item ARC ya no saca la palabra de la pila al crear los arcos, y, a causa de los cambios descritos, se agrega a estas últimas transiciones una condición en la guarda que permite comprobar que no se produzcan ciclos 
+antes de crear los arcos. Conserva la complejidad lineal.
+\item El agregado de una nueva pila también hace que el 2-planar parser posea una nueva transición llamada SWITCH que se encarga de intercambiar las pilas, para indicar cuál es la activa.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparando Parsers: En teoría}
+\begin{itemize}[<+->]
+\item Malt parser va generando un grafo de dependencias basándose fuertemente 
+en sus transiciones.
+\item 2-planar parser va generando dos bosques de dependencias en cada pila evitando 
+que existan pares de links cruzados dentro de las mismas, a la vez que permite que se crucen links pertenecientes a palabras en distintas pilas. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparando Parsers: Resultados empíricos}
+\begin{table}[h]
+\resizebox{10.5cm}{1.2cm}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline    
+     & \multicolumn{4}{|c|}{Czech} & \multicolumn{4}{|c|}{Danish} & 
+       \multicolumn{4}{|c|}{German} & \multicolumn{4}{|c|}{Portuguese} \\ \hline
+     & LAS & UAS & NPP & NPR & LAS & UAS & NPP & NPR & 
+       LAS & UAS & NPP & NPR & LAS & UAS & NPP & NPR \\ \hline
+    2-P & 79.2 & 85.3 & 68.9 & 60.7 & 83.8 & 88.5 & 66.7 
+    & 20.0 & 86.5 & 88.8 & 57.1 & 45.8 & 87.0 & 90.8 & 82.8 & 33.8 \\ \hline
+    M & 79.8 & 85.7 & 76.7 & 56.1 & 83.6 & 88.5 & 41.7 & 25.0
+    & 85.7 & 88.6 & 58.1 & 40.7 & 87.0 & 90.6 & 83.3 & 46.2 \\ \hline
+\end{tabular}
+}
+\caption{Accuracy del parsing para el 2-planar parser (2P) comparado con Malt parser con 
+transformaciones pseudo-proyectivas (M). \newline LAS = Labeled Attachment Score \newline UAS = Unlabeled Attachment Score \newline NPP = Precision on Non-Projective arcs \newline NPR = Recall on Non-Projective arcs.}
+\end{table}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Conclusiones}
+\begin{itemize}[<+->]
+\item El parser 2-planar es más simple que la implementación pseudo-proyectiva de Malt parser.
+\item Define una clase concreta y bien conocida de estructuras parseables, mientras que no se sabe qué tipos de estructuras puede parsear el Malt parser.
+\item Dado que las frases utilizadas en los corpus más importantes son 2-planares, podemos asegurar que el agregar una pila al parser genera otro parser más simple y robusto.
+\item Agregar otra pila y hacer al parser 3-planar cubre el 100\% de las casos.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+Preguntas?
+\end{frame}
+\end{document}

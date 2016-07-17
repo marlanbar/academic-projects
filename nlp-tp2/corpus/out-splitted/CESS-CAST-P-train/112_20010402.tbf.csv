@@ -1,0 +1,45 @@
+La	da0fs0	B-NP
+sección	ncfs000	I-NP
+Altaveu_Frontera	np00000	I-NP
+del	spcms	I-NP
+festival	ncms000	I-NP
+de	sps00	I-NP
+Música_Altaveu	np00000	I-NP
+de	sps00	I-NP
+Sant_Boi_de_Llobregat	np00000	I-NP
+,	fc	O
+abre	vmip3s0	B-VP
+hoy	rg	O
+el	da0ms0	B-NP
+plazo	ncms000	I-NP
+de	sps00	I-NP
+presentación	ncfs000	I-NP
+de	sps00	I-NP
+propuestas	ncfp000	I-NP
+a_cargo_de	sps00	I-NP
+grupos	ncmp000	I-NP
+noveles	aq0cp0	I-NP
+,	fc	O
+que	pr0cn000	O
+finalizará	vmif3s0	B-VP
+el	da0ms0	B-NP
+próximo	aq0ms0	I-NP
+2_de_mayo		I-NP
+.	fp	O
+La	da0fs0	B-NP
+treceava	ao0fs0	I-NP
+edición	ncfs000	I-NP
+del	spcms	I-NP
+certamen	ncms000	I-NP
+de	sps00	I-NP
+esta	dd0fs0	I-NP
+localidad	ncfs000	I-NP
+del	spcms	I-NP
+Baix_Llobregat	np00000	I-NP
+se	p0000000	O
+celebrará	vmif3s0	B-VP
+del	spcms	O
+7		B-NP
+al	spcms	I-NP
+11_de_septiembre		I-NP
+.	fp	O

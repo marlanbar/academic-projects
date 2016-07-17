@@ -1,0 +1,67 @@
+Aparcar	vmn0000	O
+pasará	vmif3s0	B-VP
+de	sps00	O
+100		B-NP
+a	sps00	O
+150		B-NP
+pesetas	zm	I-NP
+la	da0fs0	I-NP
+hora	ncfs000	I-NP
+si	cs	O
+prospera	vmip3s0	B-VP
+la	da0fs0	B-NP
+iniciativa	ncfs000	I-NP
+del	spcms	I-NP
+equipo	ncms000	I-NP
+de	sps00	I-NP
+gobierno	ncms000	I-NP
+,	fc	O
+que	pr0cn000	O
+también	rg	O
+prevé	vmip3s0	B-VP
+incrementar	vmn0000	O
+la	da0fs0	B-NP
+tasa	ncfs000	I-NP
+de	sps00	I-NP
+retirada	ncfs000	I-NP
+del	spcms	I-NP
+vehículo	ncms000	I-NP
+en	sps00	O
+un	di0ms0	B-NP
+20%		I-NP
+,	fc	O
+con	sps00	O
+lo	da0ns0	B-NP
+que	pr0cn000	O
+grúa	ncfs000	B-NP
+costará	vmif3s0	B-VP
+12.000		B-NP
+pesetas	zm	I-NP
+(	fpa	I-NP
+casi	rg	I-NP
+2.000		I-NP
+más	rg	I-NP
+que	cs	O
+en	sps00	O
+la	da0fs0	B-NP
+actualidad	ncfs000	I-NP
+)	fpt	I-NP
+.	fp	O
+El	da0ms0	B-NP
+consistorio	ncms000	I-NP
+justifica	vmip3s0	B-VP
+su	dp3cs0	B-NP
+decisión	ncfs000	I-NP
+en	sps00	O
+la	da0fs0	B-NP
+voluntad	ncfs000	I-NP
+de	sps00	O
+equiparar	vmn0000	O
+las	da0fp0	B-NP
+tarifas	ncfp000	I-NP
+con	sps00	O
+las	da0fp0	B-NP
+de	sps00	I-NP
+otras	di0fp0	I-NP
+ciudades	ncfp000	I-NP
+.	fp	O

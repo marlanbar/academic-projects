@@ -1,0 +1,378 @@
+\section{Introdución.}
+El trabajo práctico esta enfocado en aprender el uso de las diferenctes funcionalidad disponibles en la base de datos MongoDB. Consiste en resolver distintos ejercicios utilizando esta base de datos No relacional. Dentro de las bases No relaciones, Mongo DB es una base orientada a Documentos. Esto quiere decir que en lugar de guardar los datos en registros, guarda los datos en documentos. Estos documentos son almacenados en un formato BSON, que es una representación binaria de JSON.
+
+Una de las diferencias más importantes con respecto a las bases de datos relacionales, es que no es necesario seguir un esquema. Los documentos de una misma colección - concepto similar a una tabla de una base de datos relacional -, pueden tener esquemas diferentes.
+
+En el trabajo vamos a experimentar y desarrollar ejercicios sobre Desnormalización, Map-Reduce y Sharding. También haremos una comparativa con otras bases de datos No Relaciones.
+
+\section{Desnormalización.}
+En esta sección del trabajo practico, se trata sobre realizar un diseño orientado a documentos, de un DER provisto por la catedra y utilizando la tecnica de desnormalización. Ademas para tomar como guía del diseño tenemos un par de consultas que debemos poder contestar con nuestro diseño propuesto.
+
+Luego de analizar todas las consultas dadas, llegamos al siguiente diseño:
+
+\begin{lstlisting}
+Empleado: {
+nroLegajo: int,
+nombre: string,
+clientes: [{DNI, Nombre, Edad}]
+trabajos: [{CodSector, idTarea}]
+}
+
+Cliente: {
+DNI: int,
+nombre: string,
+edad: int,
+compras: [{CodBarra}]
+}
+
+Sector: {
+CodSector: int,
+Empleados: [ {NroLegajo, idTarea}]
+}
+
+Articulo: {
+  CobBarras: int,
+  nombre: string,
+  CodSector: int,
+  compradores: [{DNI}]
+}
+
+Tarea: {
+  idTarea: int,
+  Descripcion: string
+}
+
+\end{lstlisting}
+El diseño se basa en, primero tenemos un tipo de documento por cada entidad del DER y luego le fuimos agregando atributos a cada tipo de documento para ir cumpliendo con las distintas consultas necesarias.
+
+A continuación iremos enfocandonos en cada una de las consultas, explicando que decisiones tomamos en base a esa consulta, permitiendo entender el resultado final del diseño presentado más arriba.
+
+
+\subsection{Empleados que atendieron clientes mayores de edad.}
+
+Para realizar esta consulta, pensamos un esquema de documento donde embebemos los clientes dentro de los empleados, incluyendo la fecha de cuando fueron atendidos.
+
+\begin{lstlisting}
+Empleado: {
+  nroLegajo: int,
+  nombre: string,
+  clientes: [{DNI, Nombre, Edad, Fecha}],
+  ...
+}
+\end{lstlisting}
+
+Luego, para responder la consulta deseada hay que correr:
+
+\begin{lstlisting}
+db.empleados.aggregate(
+  [
+    { $unwind: "$clientes" },
+    { $match: {"clientes.Edad": { $gt: 17 } }  },
+    { $group: { _id: "$nombre", nombre:{$first:"$nombre" } } },
+    { $project : { _id:0, nombre: 1 } }
+  ]
+)
+\end{lstlisting}
+\label{consulta-a}
+
+\subsubsection{Ejemplo}
+
+Para insertar registros en la base corremos:
+
+\begin{lstlisting}
+db.empleados.insert( {
+	nroLegajo: 003,
+	nombre: "Ernestino Juanes",
+	clientes: [
+		{DNI: 40528343,
+		Nombre: "Raul Juan Lopez",
+		Edad: 14,
+		Fecha: "14/03/2015"} ] } )
+
+db.empleados.insert( {
+	nroLegajo: 002,
+	nombre: "Juan Paez",
+	clientes:
+	[
+		{
+		DNI: 30154820,
+		Nombre: "Juana Perez",
+		Edad: 23,
+		Fecha: "20/04/2015"
+		},
+		{
+		DNI: 40528753,
+		Nombre: "Raul Lopez",
+		Edad: 15,
+		Fecha: "23/04/2015"
+		}
+	] } )
+
+db.empleados.insert( {
+	nroLegajo: 001,
+	nombre: "Joaquina Paez",
+	clientes: [ {
+		DNI: 30154820,
+		Nombre: "Juan Perez",
+		Edad: 25,
+		Fecha: "03/04/2015"} ] } )
+\end{lstlisting}
+
+Luego, una vez insertados los registros deseados, corremos la consulta mencionada arriba y nos da:
+
+\begin{lstlisting}
+{ "nombre" : "Joaquina Paez" }
+{ "nombre" : "Juan Paez" }
+\end{lstlisting}
+
+\subsection{Artículos mas vendidos.}
+Para poder obtener esta información embebimos los DNIs de clientes que compraron cada artículo, dentro del artículo en cuestion. Luego buscamos el artículo con mas compradores y ese es el que nos interesa.
+
+\begin{lstlisting}
+Articulo: {
+  CobBarras: int,
+  nombre: string,
+  CodSector: int,
+  compradores: [{DNI}]
+}
+\end{lstlisting}
+
+
+Entonces, una vez definido el esquema de documento de la coleccion articulos, podemos obtener el maximo mediante la siguiente consulta:
+\begin{lstlisting}
+db.articulos.aggregate(
+  [
+    { $unwind : "$Compradores"},
+    {$group : { _id: "$CodBarras", CodBarras:{$first:"$CodBarras"},
+      Nombre:{$first:"$Nombre"}, totalVendidos: {$sum: 1} } },
+    {$sort: {totalVendidos: -1}},
+    {$limit : 1},
+    {$project : { _id:0,CodBarras: 1, totalVendidos: 1, Nombre: 1}}
+  ]
+)
+\end{lstlisting}
+
+\subsubsection{Ejemplo}
+Primero para insertar objetos corremos:
+\begin{lstlisting}
+db.articulos.insert( { CodBarras: 1303123392, Nombre: "El naufrago",
+  CodSector: 2, Compradores: [22222222] } )
+
+db.articulos.insert( { CodBarras: 2303192312,
+  Nombre: "El principito", CodSector: 3,
+  Compradores: [333333333, 22222222] } )
+
+db.articulos.insert( {CodBarras: 2305110547, Nombre: "La sombra",
+ CodSector: 2, Compradores: [ 323333333, 29123654, 28741903 ] } )
+
+\end{lstlisting}
+
+Luego, con los articulos agregados, corremos la consulta y obtenemos:
+
+\begin{lstlisting}
+{ "CodBarras" : 2305110547, "Nombre" : "La sombra",
+  "totalVendidos" : 3 }
+\end{lstlisting}
+
+
+\subsection{Sectores donde trabajan exactamente 3 empleados.}
+Para poder realizar esta consulta, decidimos embeber dentro de sectores una lista con
+el numero de legajo de todos los empleados que estan trabajando en el sector y ademas el id de la tarea que
+desempeñan en el mismo.
+
+\begin{lstlisting}
+Sector: {
+CodSector: int,
+Empleados: [ {NroLegajo, idTarea}]
+}
+\end{lstlisting}
+
+
+Luego tomando como referencia este tipo de documento, realizamos la siguiente consulta:
+\begin{lstlisting}
+db.sectores.aggregate([{ $unwind : "$Empleados"},
+	{$group : {_id: "$CodSector",CodSector:{$first:"$CodSector"},
+	totalEmpleados: {$sum: 1}}},{$project : {_id: 0, CodSector: 1,
+	totalEmpleados:1}},{$match : {totalEmpleados :3 }} ])
+\end{lstlisting}
+
+\subsubsection{Ejemplo}
+Primero insertamos algunos sectores con el esquema dado:
+\begin{lstlisting}
+db.sectores.insert({CodSector: 1, Empleados: [{NroLegajo: 001,
+	idTarea: 02},{NroLegajo: 002, idTarea: 03},{NroLegajo: 003,
+	idTarea: 01}]})
+
+db.sectores.insert({CodSector: 2,
+Empleados: [
+	{NroLegajo: 001, idTarea: 01},
+	{NroLegajo: 002, idTarea: 07},
+	{NroLegajo: 003, idTarea: 01},
+	{NroLegajo: 001, idTarea: 02},
+	{NroLegajo: 008, idTarea: 12}
+	]})
+
+db.sectores.insert({CodSector: 4,
+Empleados: [
+		{NroLegajo: 007, idTarea: 02},
+		{NroLegajo: 003, idTarea: 11}]})
+\end{lstlisting}
+
+Luego, ya con los ejemplos insertados, corremos la consulta descripta mas arriba y obtenemos:
+\begin{lstlisting}
+{ "CodSector" : 1, "totalEmpleados" : 3 }
+\end{lstlisting}
+
+\subsection{Empleado que trabaja en más sectores.}
+Para poder obtener esta información, primero planteamos el siguiente esquema de documento para la coleccion de empleados, donde tenemos una lista con los sectores donde un empleado trabaja y las tareas que cumple en dicho sector.
+
+\begin{lstlisting}
+Empleado: {
+nroLegajo: int,
+nombre: string,
+clientes: [{DNI, Nombre, Edad}]
+trabajos: [{CodSector, idTarea}]
+}
+\end{lstlisting}
+
+Luego, teniendo en cuenta ese esquema de docuemnto, planteamos la siguiente consulta:
+\begin{lstlisting}
+db.empleados.aggregate([{ $unwind : "$trabajos"},
+{$group : {_id: "$nroLegajo",nroLegajo:{$first:"$nroLegajo"},
+totalTrabajos: {$sum: 1}}},
+{$project : {_id: 0, nroLegajo: 1, totalTrabajos:1}},
+{$sort : {totalTrabajos: -1}},
+{$limit : 1} ])
+\end{lstlisting}
+
+\subsubsection{Ejemplo}
+
+Primero insertamos algunos ejemplos:
+\begin{lstlisting}
+
+db.empleados.insert( { nroLegajo: 006, nombre: "Ernestino Juanes",
+	clientes: [
+		{DNI: 40528343, Nombre: "Raul Juan Lopez", Edad: 14} ] ,
+	trabajos: [{CodSector: 07, Tarea: 10}]} )
+
+db.empleados.insert( { nroLegajo: 005, nombre: "Juan Paez",
+	clientes: [
+		{DNI: 30154820, Nombre: "Juana Perez", Edad: 23},
+		{DNI: 40528753, Nombre: "Raul Lopez", Edad: 15} ],
+	trabajos: [
+		{CodSector: 01, Tarea: 02},
+		{CodSector: 04, Tarea: 03},
+		{CodSector: 07, Tarea: 09}] } )
+
+db.empleados.insert( { nroLegajo: 004, nombre: "Joaquina Paez",
+	clientes: [
+		{DNI: 30154820, Nombre: "Juan Perez", Edad: 25} ],
+	trabajos: [
+		{CodSector: 09, Tarea: 01},
+		{CodSector: 03, Tarea: 05}] } )
+
+\end{lstlisting}
+
+Luego si corremos la consulta sobre estos casos obtenemos:
+
+\begin{lstlisting}
+{ "nroLegajo" : 5, "totalTrabajos" : 3 }
+\end{lstlisting}
+Es decir, que el empleado que trabaja en mas sectores es el que tiene numero de Legajo 5 y trabaja en 3 sectores actualmente.
+
+\subsection{Ranking de los clientes con mayor cantidad de compras.}
+Para poder obtener el ranking de los clientes segun la cantidad de compras que realizo cada uno, primero
+planteamos el siguiente esquema de documentos para la coleccion cliente, donde tenemos una lista con el codigo de barra de todos los productos que compro.
+
+\begin{lstlisting}
+Cliente: {
+DNI: int,
+nombre: string,
+edad: int,
+compras: [{CodBarra}]
+}
+\end{lstlisting}
+
+
+Luego, basandonos en ese esquema de documento, podemos realizar la siguiente consulta para obtener lo deseado:
+\begin{lstlisting}
+db.clientes.aggregate([{ $unwind: "$compras"},
+{$group : {_id: "$DNI",DNI:{$first:"$DNI"},
+		nombre:{$first:"$nombre"},totalCompras: {$sum:1}} },
+{$project :{ _id:0, DNI:1, nombre:1, totalCompras:1}},
+{$sort : {totalCompras : -1}} ] )
+\end{lstlisting}
+
+\subsubsection{Ejemplo}
+Primero insertamos algunos ejemplos:
+\begin{lstlisting}
+
+db.clientes.insert({
+	DNI: 32012932,
+	nombre: "Guillermo Rodriguez",
+	edad: 23,
+	compras: [
+		{CodBarra: 321},
+		{CodBarra: 023},
+		{CodBarra: 231},
+		{CodBarra: 123}
+		]})
+
+db.clientes.insert({
+	DNI: 33002654,
+	nombre: "Pedro Juanes",
+	edad: 28,
+	compras: [
+		{CodBarra: 023},
+		{CodBarra: 231}
+		]})
+
+db.clientes.insert({
+	DNI: 38165687,
+	nombre: "Carolina Hernandez",
+	edad: 20,
+	compras: [
+		{CodBarra: 123}
+		]})
+\end{lstlisting}
+
+Luego una vez que ya insertamosestos ejemplos, corremos la consulta y obtenemos:
+\begin{lstlisting}
+{"DNI" : 33002654, "nombre" : "Pedro Juanes", "totalCompras" : 2}
+{"DNI" : 32012932, "nombre" : "Guillermo Rodriguez", "totalCompras" : 4}
+{"DNI" : 38165687, "nombre" : "Carolina Hernandez", "totalCompras" : 1}
+\end{lstlisting}
+
+\subsection{Cantidad de compras realizadas por clientes de misma edad.}
+Para poder realizar esta consulta no tuvimos que realizar ninguna modificación, alcanza con el esquema
+de documentos que ya mencionamos mas arriba para la coleccion clientes.
+
+Entonces para responder esta consulta podemos hacer:
+\begin{lstlisting}
+db.clientes.aggregate([{ $unwind: "$compras"},
+{$group : {_id: "$edad", edad: {$first:"$edad"},totalCompras:{$sum:1}}},
+{$project: {_id: 0, edad: 1, totalCompras: 1}}])
+\end{lstlisting}
+
+\subsubsection{Ejemplo}
+Ademas de los clientes insertados en el consulta anterior agregamos:
+
+\begin{lstlisting}
+db.clientes.insert({
+	DNI: 34020253,
+	nombre: "Juan Martinez",
+	edad: 28,
+	compras: [
+		{CodBarra: 007},
+		{CodBarra: 109},
+		{CodBarra: 182}]
+		})
+\end{lstlisting}
+
+Entonces, corriendo la consulta mencionada mas arriba obtenemos:
+
+\begin{lstlisting}
+{ "edad" : 20, "totalCompras" : 1 }
+{ "edad" : 28, "totalCompras" : 5 }
+{ "edad" : 23, "totalCompras" : 4 }
+\end{lstlisting}

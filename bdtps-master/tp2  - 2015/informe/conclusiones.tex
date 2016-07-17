@@ -1,0 +1,8 @@
+\section{Conclusiones.}
+En cuanto a la tecnica map-reduce, nos dimos cuenta que es una herramienta muy útil para realizar consultas que necesiten de agrupamientos o de agregasiones, ya que su forma de funcionar hace que la solución resulte muy intuitiva. Además resulta interesante para realizar procesamiento sobre bases de datos muy voluminosas ya que permite dividir esta en partes y realizar procesos en simultaneo y distribuidos.
+
+El sharding es una herramienta muy útil para balancear la carga de datos entre servidores. MongoDB nos proporciona una forma sencilla de hacerlo, pero que hay que configurar correctamente. La elección de la clave por la que se realizará el sharding (shard key) es muy importante. Esta elección no se puede cambiar una vez se ha establecido.
+
+Los índices son un punto importante a la hora de realizar consultas contra una base de datos MongoDB. Una mala gestión de los índices puede derivar en un rendimiento pobre, por lo que deberemos ser conscientes del tipo de consultas que se realizan a la base de datos. Sabiendo qué campos se utilizan para filtrar y cuáles suelen ser los devueltos en las consultas, seremos capaces de crear los índices necesarios para que nuestra base de datos se comporte correctamente.
+
+Uno de los aspectos que vimos en la sección en la que investigamos sobre Redis y bases de datos key-value, es que al agregar muchas consultas empieza a necesitarse muchos diccionarios (namespaces) perjudicando asi el diseño y aumentando el costo de mantenimiento de la base. Con lo cual el uso de este tipo de bases de datos es mas idoneo para cuando se tienen pocas consultas para las cuales se necesita buena performance.

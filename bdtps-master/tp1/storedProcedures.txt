@@ -1,0 +1,10 @@
+Diseñamos el codigo como una funcion definida en Python debido a caracteristicas del motor elegido. SQLLite fue diseñado para ser simple y compacto, por lo cual carece de ciertos features avanzados que motores mas complejos tienen, como los Stored Procedures.
+
+Un Stored Procedure (SP) es una rutina almacenada en la BBDD que provee alguna funcionalidad que se desea repetir, ya sea para ser llamada durante un query o para otras funciones del motor (como por ejemplo, durante triggers). En cierto sentido, puede pensarse como una funciones de un lenguaje imperativo a ser llamadas.
+
+La ventaja principal de este feature es que "pega" parte de la logica del proyecto a la BBDD, estando siempre disponible para todo usuario[*] que tenga accesso a ella. Ademas, si llega a haber algun cambio en las necesidades del projecto (por ejemplo, cambia una norma interna y las personas que gastaron menos de 100U$S pasan a ser "no prioritarias"), ajustar un StoredProcedure asegura que ese cambio se va reflejado en cualquier llamado al subproceso sin tener que hacer ninguna clase de mantenimiento. Por ultimo (y esto es mas dependiente de cada motor), existen motores de DDBB que optimizan los SP almacenados para mejorar su eficiencia.
+
+De todas maneras, consideramos que usar una funcion definida de forma externa puede provee resultados satisfactorios a pesar de ser mas limitado. Mientras se tengan multiples cuidados (estas funciones estan siempre disponible y up-to-date para todos los usuarios, los programadores evitan crear codigo si existe una tarea externa que cumpla ese rol a la cual puedan llamar, etc.) consideramos que la consistencia de la BBDD no peligra por tener ese codigo menos "pegado".  
+
+
+[*] Usamos el termino usuario como aquella persona que puedan acceder directamente a la BBDD. Una persona que se registra en una pagina web (y esta accion crea una entrada en la BBDD) no contaria como usuario. En ese caso, el usuario seria aquel que programo la pagina web para comunicarse con la BBDD.

@@ -1,0 +1,1317 @@
+MongoDB shell version: 2.6.10
+connecting to: localhost:20003/test
+mongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jshow collections[25G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20001", name:"shard20001"});[72G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Jshow collections[25G[9G[Juse admin[18G[9G[Juse admin[18G
+switched to db admin
+mongos> [9G[Juse admin[18G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jshow collections[25G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20001", name:"shard20001"});[72G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Jshow collections[25G[9G[Juse admin[18G[9G[Jshow collections[25G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Jdb.runCommand({addshard:"localhost:20001", name:"shard20001"});[72G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20001", name:"shard20001"});[72G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20001", name:"shard20001"});[72G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G
+{
+	"ok" : 0,
+	"errmsg" : "can't add shard localhost:20000 because a local database 'test_sharding' exists in another shard20000:localhost:20000"
+}
+mongos> [9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Juse admin[18G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jshow collections[25G[9G[Juse test_sharding[26G[9G[Juse test_sharding[26G
+switched to db test_sharding
+mongos> [9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Juse admin[18G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jshow collections[25G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20001", name:"shard20001"});[72G[9G[Juse test_sharding[26G[9G[Jshow collections[25G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jsh.enableSharding("test_sharding")[43G
+{ "ok" : 0, "errmsg" : "already enabled" }
+mongos> [9G[Jsh.enableSharding("test_sharding")[43G[9G[Juse test_sharding[26G[9G[Jsh.enableSharding("test_sharding")[43G[9G[J[9G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Juse admin[18G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jshow collections[25G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jdb.people.ensureIndex[1;34m([0m{"_id": "hashed"})[48G[9G[Jdb.people.ensureIndex([1;34m{[0m"_id": "hashed"})[47G[9G[Jdb.people.ensureIndex[1;34m([0m{"_id": "hashed"})[48G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G
+{
+	"raw" : {
+		"localhost:20000" : {
+			"numIndexesBefore" : 2,
+			"note" : "all indexes already exist",
+			"ok" : 1
+		}
+	},
+	"ok" : 1
+}
+mongos> [9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[71G[9G[Juse admin[18G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jsh.shardCollection[1;34m([0m"test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[80G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[79G[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": 1} )
+[1A[78G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[77G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[76G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[75G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[74G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[73G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[72G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[73G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[74G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[75G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[76G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[77G[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": 1} )
+[1A[78G[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": } )[77G[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": "} )
+[1A[78G[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": "h} )[1A[79G[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": "ha} )[1A[80G[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": "has} )[1G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": "hash} )[2G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": "hashe} )[3G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": "hashed} )[4G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", [1;34m{[0m"idPublicacion": "hashed"} )[5G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G
+{ "ok" : 0, "errmsg" : "already sharded" }
+mongos> use tes[9G[Juse te[15G[9G[Juse t[14G[9G[Juse [13G[9G[Juse[12G[9G[Jus[11G[9G[Ju[10G[9G[J[9G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[H[2Jmongos> [9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[H[2Jmongos> [9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[H[2Jmongos> [9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Juse admin[18G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jdb.people.ensureIndex[1;34m([0m{"_id": "hashed"})[48G[9G[Jdb.people.ensureIndex([1;34m{[0m"_id": "hashed"})[47G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[46G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[45G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[44G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[43G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[42G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[41G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[40G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[39G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[38G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[37G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[36G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[35G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[34G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[33G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[32G[9G[Jdb.people.ensureIndex({"_id": "hashed"[1;34m}[0m)[31G[9G[Jdb.people.ensureIndex({"_id": "hashed"}[1;34m)[0m[30G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[29G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[28G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[27G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[26G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[25G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[24G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[23G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[22G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[21G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[20G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[19G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[18G[9G[Jdb.peopl.ensureIndex({"_id": "hashed"})[17G[9G[Jdb.peop.ensureIndex({"_id": "hashed"})[16G[9G[Jdb.peo.ensureIndex({"_id": "hashed"})[15G[9G[Jdb.pe.ensureIndex({"_id": "hashed"})[14G[9G[Jdb.p.ensureIndex({"_id": "hashed"})[13G[9G[Jdb..ensureIndex({"_id": "hashed"})[12G[9G[Jdb.ensureIndex({"_id": "hashed"})[11G[9G[Jdb..ensureIndex({"_id": "hashed"})[12G[9G[Jdb.p.ensureIndex({"_id": "hashed"})[13G[9G[Jdb.pu.ensureIndex({"_id": "hashed"})[14G[9G[Jdb.pub.ensureIndex({"_id": "hashed"})[15G[9G[Jdb.publ.ensureIndex({"_id": "hashed"})[16G[9G[Jdb.publi.ensureIndex({"_id": "hashed"})[17G[9G[Jdb.public.ensureIndex({"_id": "hashed"})[18G[9G[Jdb.publica.ensureIndex({"_id": "hashed"})[19G[9G[Jdb.publicac.ensureIndex({"_id": "hashed"})[20G[9G[Jdb.publicaci.ensureIndex({"_id": "hashed"})[21G[9G[Jdb.publicacio.ensureIndex({"_id": "hashed"})[22G[9G[Jdb.publicacion.ensureIndex({"_id": "hashed"})[23G[9G[Jdb.publicacione.ensureIndex({"_id": "hashed"})[24G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[25G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[56G
+{
+	"raw" : {
+		"localhost:20000" : {
+			"createdCollectionAutomatically" : false,
+			"numIndexesBefore" : 2,
+			"numIndexesAfter" : 3,
+			"ok" : 1
+		},
+		"localhost:20001" : {
+			"createdCollectionAutomatically" : false,
+			"numIndexesBefore" : 2,
+			"numIndexesAfter" : 3,
+			"ok" : 1
+		}
+	},
+	"ok" : 1
+}
+mongos> [9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[56G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G
+{ "ok" : 0, "errmsg" : "already sharded" }
+mongos> [9G[J[9Gmongos> [H[2Jmongos> [9G[J[9G[H[2Jmongos> [9G[J[9G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[56G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Juse admin[18G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Juse admin[18G[9G[Jdb.runCommand({addshard:"localhost:20000", name:"shard20000"});[72G[9G[Juse test_sharding[26G[9G[Juse test_sharding[25G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jsh.enableSharding[1;34m([0m"test_sharding")[42G[9G[Jdb.people.ensureIndex({"_id": "hashed"})[49G[9G[Jdb.people.ensureIndex[1;34m([0m{"_id": "hashed"})[48G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[Jsh.shardCollection[1;34m([0m"test_sharding.publicaciones", {"idPublicacion": "hashed"} )[7G[1A[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[56G[9G[Jdb.publicaciones.ensureIndex[1;34m([0m{"_id": "hashed"})[55G[9G[Jdb.publicaciones.ensureIndex([1;34m{[0m"_id": "hashed"})[54G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[53G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[52G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[51G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[50G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[49G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[48G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[47G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[46G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[45G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[44G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[43G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[42G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[41G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[40G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[39G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"[1;34m}[0m)[38G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"}[1;34m)[0m[37G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[36G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[35G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[34G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[33G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[32G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[31G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[30G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[29G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[28G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[27G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[26G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[25G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[24G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[25G[9G[Jdb.publicaciones2.ensureIndex({"_id": "hashed"})[26G[9G[Jdb.publicaciones2.ensureIndex({"_id": "hashed"})[57G
+
+{
+	"raw" : {
+		"localhost:20000" : {
+			"createdCollectionAutomatically" : true,
+			"numIndexesBefore" : 1,
+			"numIndexesAfter" : 2,
+			"ok" : 1
+		}
+	},
+	"ok" : 1
+}
+mongos> [9G[Jdb.publicaciones2.ensureIndex({"_id": "hashed"})[57G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[Jsh.shardCollection[1;34m([0m"test_sharding.publicaciones", {"idPublicacion": "hashed"} )[7G[H[2Jmongos> [9G[Jsh.shardCollection[1;34m([0m"test_sharding.publicaciones", {"idPublicacion": "hashed"} )[7G[H[2Jmongos> [9G[Jsh.shardCollection[1;34m([0m"test_sharding.publicaciones", {"idPublicacion": "hashed"} )[7G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[J[9G[9G[Jdb.publicaciones.ensureIndex({"_id": "hashed"})[56G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[Jsh.shardCollection[1;34m([0m"test_sharding.publicaciones", {"idPublicacion": "hashed"} )[7G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[J[9Gsh.shardCollection("test_sharding.people", {"zip": 1} )[9G[Jsh.shardCollection[1;34m([0m"test_sharding.people", {"zip": 1} )[63G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[62G[9G[Jsh.shardCollection("test_sharding.people", [1;34m{[0m"zip": 1} )[61G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[60G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[59G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[58G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[57G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[56G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[55G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[54G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[53G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1[1;34m}[0m )[52G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[51G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[50G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[49G[9G[Jsh.shardCollection("test_sharding.peopl", {"zip": 1} )[48G[9G[Jsh.shardCollection("test_sharding.peop", {"zip": 1} )[47G[9G[Jsh.shardCollection("test_sharding.peo", {"zip": 1} )[46G[9G[Jsh.shardCollection("test_sharding.pe", {"zip": 1} )[45G[9G[Jsh.shardCollection("test_sharding.p", {"zip": 1} )[44G[9G[Jsh.shardCollection("test_sharding.pu", {"zip": 1} )[45G[9G[Jsh.shardCollection("test_sharding.pub", {"zip": 1} )[46G[9G[Jsh.shardCollection("test_sharding.publ", {"zip": 1} )[47G[9G[Jsh.shardCollection("test_sharding.publi", {"zip": 1} )[48G[9G[Jsh.shardCollection("test_sharding.public", {"zip": 1} )[49G[9G[Jsh.shardCollection("test_sharding.publica", {"zip": 1} )[50G[9G[Jsh.shardCollection("test_sharding.publicac", {"zip": 1} )[51G[9G[Jsh.shardCollection("test_sharding.publicaco", {"zip": 1} )[52G[9G[Jsh.shardCollection("test_sharding.publicac", {"zip": 1} )[51G[9G[Jsh.shardCollection("test_sharding.publica", {"zip": 1} )[50G[9G[Jsh.shardCollection("test_sharding.publicac", {"zip": 1} )[51G[9G[Jsh.shardCollection("test_sharding.publicaci", {"zip": 1} )[52G[9G[Jsh.shardCollection("test_sharding.publicacio", {"zip": 1} )[53G[9G[Jsh.shardCollection("test_sharding.publicacion", {"zip": 1} )[54G[9G[Jsh.shardCollection("test_sharding.publicacione", {"zip": 1} )[55G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1} )[56G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zip": 1} )[57G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zip": 1} )[58G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zip": 1} )[59G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zip": 1[1;34m}[0m )[60G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zip": 1} )[61G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zip": 1} )[62G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zip": 1} )[63G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zip": 1} )[64G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zip": 1} )[65G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"zi": 1} )[64G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"z": 1} )[63G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"": 1} )[62G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"s": 1} )[63G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"": 1} )[62G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"i": 1} )[63G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"id": 1} )[64G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idP": 1} )[65G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPu": 1} )[66G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPub": 1} )[67G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPubl": 1} )[68G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPubli": 1} )[69G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublic": 1} )[70G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublica": 1} )[71G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublicac": 1} )[72G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublicaci": 1} )[73G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublicacio": 1} )
+[1A[74G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublicacion": 1} )[1A[75G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublicacion": 1} )[1A[76G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublicacion": 1} )[1A[77G[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublicacion": 1} )[1A[78G[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": 1} )[1A[79G[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": } )
+[1A[78G[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": "} )[1A[79G[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": "h} )[1A[80G[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": "ha} )[1G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": "has} )[2G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": "hash} )[3G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": "hashe} )[4G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": "hashed} )[5G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones2", [1;34m{[0m"idPublicacion": "hashed"} )[6G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublicacion": "hashed"} )[9G
+{ "collectionsharded" : "test_sharding.publicaciones2", "ok" : 1 }
+mongos> [9G[Jsh.shardCollection("test_sharding.publicaciones2", {"idPublicacion": "hashed"} )[9G[1A[9G[Jdb.publicaciones2.ensureIndex({"_id": "hashed"})[57G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} )[8G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} [7G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} [7G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} [7G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} [7G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} [7G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} [7G[H[2Jmongos> [9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} [7G[1A[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": "hashed"} [7G[1A[9G[J[9Gload("agregarData2.js")[9G[Jload("agregarData2.js")[32G
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 1.06MiB docs : 9986 chunks : 2
+ estimated data per chunk : 546KiB
+ estimated docs per chunk : 4993
+
+Shard shard20001 at localhost:20001
+ data : 1.06MiB docs : 10014 chunks : 2
+ estimated data per chunk : 547KiB
+ estimated docs per chunk : 5007
+
+Totals
+ data : 2.13MiB docs : 20000 chunks : 4
+ Shard shard20000 contains 49.93% data, 49.93% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.07% data, 50.07% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 2.13MiB docs : 19977 chunks : 2
+ estimated data per chunk : 1.06MiB
+ estimated docs per chunk : 9988
+
+Shard shard20001 at localhost:20001
+ data : 2.13MiB docs : 20023 chunks : 2
+ estimated data per chunk : 1.06MiB
+ estimated docs per chunk : 10011
+
+Totals
+ data : 4.27MiB docs : 40000 chunks : 4
+ Shard shard20000 contains 49.94% data, 49.94% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.05% data, 50.05% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 3.2MiB docs : 30002 chunks : 2
+ estimated data per chunk : 1.6MiB
+ estimated docs per chunk : 15001
+
+Shard shard20001 at localhost:20001
+ data : 3.2MiB docs : 29998 chunks : 2
+ estimated data per chunk : 1.6MiB
+ estimated docs per chunk : 14999
+
+Totals
+ data : 6.4MiB docs : 60000 chunks : 4
+ Shard shard20000 contains 50% data, 50% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 49.99% data, 49.99% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 4.26MiB docs : 39940 chunks : 2
+ estimated data per chunk : 2.13MiB
+ estimated docs per chunk : 19970
+
+Shard shard20001 at localhost:20001
+ data : 4.27MiB docs : 40060 chunks : 2
+ estimated data per chunk : 2.13MiB
+ estimated docs per chunk : 20030
+
+Totals
+ data : 8.54MiB docs : 80000 chunks : 4
+ Shard shard20000 contains 49.92% data, 49.92% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.07% data, 50.07% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 5.32MiB docs : 49840 chunks : 2
+ estimated data per chunk : 2.66MiB
+ estimated docs per chunk : 24920
+
+Shard shard20001 at localhost:20001
+ data : 5.35MiB docs : 50160 chunks : 2
+ estimated data per chunk : 2.67MiB
+ estimated docs per chunk : 25080
+
+Totals
+ data : 10.68MiB docs : 100000 chunks : 4
+ Shard shard20000 contains 49.84% data, 49.84% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.16% data, 50.16% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 6.37MiB docs : 59711 chunks : 2
+ estimated data per chunk : 3.18MiB
+ estimated docs per chunk : 29855
+
+Shard shard20001 at localhost:20001
+ data : 6.43MiB docs : 60289 chunks : 2
+ estimated data per chunk : 3.21MiB
+ estimated docs per chunk : 30144
+
+Totals
+ data : 12.81MiB docs : 120000 chunks : 4
+ Shard shard20000 contains 49.75% data, 49.75% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.24% data, 50.24% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 7.43MiB docs : 69609 chunks : 2
+ estimated data per chunk : 3.71MiB
+ estimated docs per chunk : 34804
+
+Shard shard20001 at localhost:20001
+ data : 7.51MiB docs : 70391 chunks : 2
+ estimated data per chunk : 3.75MiB
+ estimated docs per chunk : 35195
+
+Totals
+ data : 14.95MiB docs : 140000 chunks : 4
+ Shard shard20000 contains 49.72% data, 49.72% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.27% data, 50.27% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 8.5MiB docs : 79626 chunks : 2
+ estimated data per chunk : 4.25MiB
+ estimated docs per chunk : 39813
+
+Shard shard20001 at localhost:20001
+ data : 8.58MiB docs : 80374 chunks : 2
+ estimated data per chunk : 4.29MiB
+ estimated docs per chunk : 40187
+
+Totals
+ data : 17.08MiB docs : 160000 chunks : 4
+ Shard shard20000 contains 49.76% data, 49.76% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.23% data, 50.23% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 9.57MiB docs : 89654 chunks : 2
+ estimated data per chunk : 4.78MiB
+ estimated docs per chunk : 44827
+
+Shard shard20001 at localhost:20001
+ data : 9.64MiB docs : 90346 chunks : 2
+ estimated data per chunk : 4.82MiB
+ estimated docs per chunk : 45173
+
+Totals
+ data : 19.22MiB docs : 180000 chunks : 4
+ Shard shard20000 contains 49.8% data, 49.8% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.19% data, 50.19% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 10.64MiB docs : 99658 chunks : 2
+ estimated data per chunk : 5.32MiB
+ estimated docs per chunk : 49829
+
+Shard shard20001 at localhost:20001
+ data : 10.71MiB docs : 100342 chunks : 2
+ estimated data per chunk : 5.35MiB
+ estimated docs per chunk : 50171
+
+Totals
+ data : 21.36MiB docs : 200000 chunks : 4
+ Shard shard20000 contains 49.82% data, 49.82% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.17% data, 50.17% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 11.71MiB docs : 109658 chunks : 2
+ estimated data per chunk : 5.85MiB
+ estimated docs per chunk : 54829
+
+Shard shard20001 at localhost:20001
+ data : 11.78MiB docs : 110342 chunks : 2
+ estimated data per chunk : 5.89MiB
+ estimated docs per chunk : 55171
+
+Totals
+ data : 23.49MiB docs : 220000 chunks : 4
+ Shard shard20000 contains 49.84% data, 49.84% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.15% data, 50.15% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 12.77MiB docs : 119562 chunks : 2
+ estimated data per chunk : 6.38MiB
+ estimated docs per chunk : 59781
+
+Shard shard20001 at localhost:20001
+ data : 12.86MiB docs : 120438 chunks : 2
+ estimated data per chunk : 6.43MiB
+ estimated docs per chunk : 60219
+
+Totals
+ data : 25.63MiB docs : 240000 chunks : 4
+ Shard shard20000 contains 49.81% data, 49.81% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.18% data, 50.18% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 13.83MiB docs : 129568 chunks : 2
+ estimated data per chunk : 6.91MiB
+ estimated docs per chunk : 64784
+
+Shard shard20001 at localhost:20001
+ data : 13.93MiB docs : 130432 chunks : 2
+ estimated data per chunk : 6.96MiB
+ estimated docs per chunk : 65216
+
+Totals
+ data : 27.77MiB docs : 260000 chunks : 4
+ Shard shard20000 contains 49.83% data, 49.83% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.16% data, 50.16% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 14.9MiB docs : 139502 chunks : 2
+ estimated data per chunk : 7.45MiB
+ estimated docs per chunk : 69751
+
+Shard shard20001 at localhost:20001
+ data : 15MiB docs : 140498 chunks : 2
+ estimated data per chunk : 7.5MiB
+ estimated docs per chunk : 70249
+
+Totals
+ data : 29.9MiB docs : 280000 chunks : 4
+ Shard shard20000 contains 49.82% data, 49.82% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.17% data, 50.17% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 15.98MiB docs : 149626 chunks : 2
+ estimated data per chunk : 7.99MiB
+ estimated docs per chunk : 74813
+
+Shard shard20001 at localhost:20001
+ data : 16.06MiB docs : 150374 chunks : 2
+ estimated data per chunk : 8.03MiB
+ estimated docs per chunk : 75187
+
+Totals
+ data : 32.04MiB docs : 300000 chunks : 4
+ Shard shard20000 contains 49.87% data, 49.87% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.12% data, 50.12% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 17.04MiB docs : 159567 chunks : 2
+ estimated data per chunk : 8.52MiB
+ estimated docs per chunk : 79783
+
+Shard shard20001 at localhost:20001
+ data : 17.13MiB docs : 160433 chunks : 2
+ estimated data per chunk : 8.56MiB
+ estimated docs per chunk : 80216
+
+Totals
+ data : 34.17MiB docs : 320000 chunks : 4
+ Shard shard20000 contains 49.86% data, 49.86% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.13% data, 50.13% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 18.12MiB docs : 169648 chunks : 2
+ estimated data per chunk : 9.05MiB
+ estimated docs per chunk : 84824
+
+Shard shard20001 at localhost:20001
+ data : 18.19MiB docs : 170352 chunks : 2
+ estimated data per chunk : 9.09MiB
+ estimated docs per chunk : 85176
+
+Totals
+ data : 36.31MiB docs : 340000 chunks : 4
+ Shard shard20000 contains 49.89% data, 49.89% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.1% data, 50.1% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 19.18MiB docs : 179605 chunks : 2
+ estimated data per chunk : 9.59MiB
+ estimated docs per chunk : 89802
+
+Shard shard20001 at localhost:20001
+ data : 19.26MiB docs : 180395 chunks : 2
+ estimated data per chunk : 9.63MiB
+ estimated docs per chunk : 90197
+
+Totals
+ data : 38.45MiB docs : 360000 chunks : 4
+ Shard shard20000 contains 49.89% data, 49.89% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.1% data, 50.1% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 20.25MiB docs : 189614 chunks : 2
+ estimated data per chunk : 10.12MiB
+ estimated docs per chunk : 94807
+
+Shard shard20001 at localhost:20001
+ data : 20.33MiB docs : 190386 chunks : 2
+ estimated data per chunk : 10.16MiB
+ estimated docs per chunk : 95193
+
+Totals
+ data : 40.58MiB docs : 380000 chunks : 4
+ Shard shard20000 contains 49.89% data, 49.89% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.1% data, 50.1% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 21.32MiB docs : 199660 chunks : 2
+ estimated data per chunk : 10.66MiB
+ estimated docs per chunk : 99830
+
+Shard shard20001 at localhost:20001
+ data : 21.39MiB docs : 200340 chunks : 2
+ estimated data per chunk : 10.69MiB
+ estimated docs per chunk : 100170
+
+Totals
+ data : 42.72MiB docs : 400000 chunks : 4
+ Shard shard20000 contains 49.91% data, 49.91% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.08% data, 50.08% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 22.39MiB docs : 209666 chunks : 2
+ estimated data per chunk : 11.19MiB
+ estimated docs per chunk : 104833
+
+Shard shard20001 at localhost:20001
+ data : 22.46MiB docs : 210334 chunks : 2
+ estimated data per chunk : 11.23MiB
+ estimated docs per chunk : 105167
+
+Totals
+ data : 44.86MiB docs : 420000 chunks : 4
+ Shard shard20000 contains 49.92% data, 49.92% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.07% data, 50.07% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 23.46MiB docs : 219704 chunks : 2
+ estimated data per chunk : 11.73MiB
+ estimated docs per chunk : 109852
+
+Shard shard20001 at localhost:20001
+ data : 23.52MiB docs : 220296 chunks : 2
+ estimated data per chunk : 11.76MiB
+ estimated docs per chunk : 110148
+
+Totals
+ data : 46.99MiB docs : 440000 chunks : 4
+ Shard shard20000 contains 49.93% data, 49.93% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.06% data, 50.06% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 24.53MiB docs : 229747 chunks : 2
+ estimated data per chunk : 12.26MiB
+ estimated docs per chunk : 114873
+
+Shard shard20001 at localhost:20001
+ data : 24.59MiB docs : 230253 chunks : 2
+ estimated data per chunk : 12.29MiB
+ estimated docs per chunk : 115126
+
+Totals
+ data : 49.13MiB docs : 460000 chunks : 4
+ Shard shard20000 contains 49.94% data, 49.94% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.05% data, 50.05% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 25.59MiB docs : 239656 chunks : 2
+ estimated data per chunk : 12.79MiB
+ estimated docs per chunk : 119828
+
+Shard shard20001 at localhost:20001
+ data : 25.67MiB docs : 240344 chunks : 2
+ estimated data per chunk : 12.83MiB
+ estimated docs per chunk : 120172
+
+Totals
+ data : 51.26MiB docs : 480000 chunks : 4
+ Shard shard20000 contains 49.92% data, 49.92% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.07% data, 50.07% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769e1aedef4008187e858f9")
+}
+  shards:
+	{  "_id" : "shard20000",  "host" : "localhost:20000" }
+	{  "_id" : "shard20001",  "host" : "localhost:20001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard20000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard20001	2
+				shard20000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard20001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard20000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(3, 0) 
+		test_sharding.publicaciones2
+			shard key: { "idPublicacion" : "hashed" }
+			chunks:
+				shard20000	2
+				shard20001	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : NumberLong("-4611686018427387902") } on : shard20000 Timestamp(2, 2) 
+			{ "idPublicacion" : NumberLong("-4611686018427387902") } -->> { "idPublicacion" : NumberLong(0) } on : shard20000 Timestamp(2, 3) 
+			{ "idPublicacion" : NumberLong(0) } -->> { "idPublicacion" : NumberLong("4611686018427387902") } on : shard20001 Timestamp(2, 4) 
+			{ "idPublicacion" : NumberLong("4611686018427387902") } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard20001 Timestamp(2, 5) 
+
+
+Shard shard20000 at localhost:20000
+ data : 26.67MiB docs : 249754 chunks : 2
+ estimated data per chunk : 13.33MiB
+ estimated docs per chunk : 124877
+
+Shard shard20001 at localhost:20001
+ data : 26.72MiB docs : 250246 chunks : 2
+ estimated data per chunk : 13.36MiB
+ estimated docs per chunk : 125123
+
+Totals
+ data : 53.4MiB docs : 500000 chunks : 4
+ Shard shard20000 contains 49.95% data, 49.95% docs in cluster, avg obj size on shard : 112B
+ Shard shard20001 contains 50.04% data, 50.04% docs in cluster, avg obj size on shard : 112B
+
+
+true
+mongos> [9G[J[9Gmongos> 

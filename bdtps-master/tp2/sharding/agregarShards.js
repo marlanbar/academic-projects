@@ -1,0 +1,5 @@
+db.runCommand({addshard:"localhost:10000", name:"shard10000"})
+db.runCommand({addshard:"localhost:10001", name:"shard10001"})
+db.runCommand({addshard:"localhost:10002", name:"shard10002"})
+db.runCommand({addshard:"localhost:10003", name:"shard10003"})
+db.runCommand({addshard:"localhost:10004", name:"shard10004"})

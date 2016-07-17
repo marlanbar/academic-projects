@@ -1,0 +1,1069 @@
+MongoDB shell version: 2.6.10
+connecting to: localhost:10003/test
+mongos> [9G[Jdb.publicaciones.ensureIndex({"idPublicacion": 1})[59G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jshow collections[25G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:10001", name:"shard10001"});[72G[9G[Jdb.runCommand({addshard:"localhost:10000", name:"shard10000"});[72G[9G[Juse admin[18G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Juse admin[18G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Jdb.publicaciones.ensureIndex({"idPublicacion": 1})[59G[9G[Jsh.enableSharding("test_sharding")[43G[9G[Jdb.publicaciones.ensureIndex({"idPublicacion": 1})[59G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G[1A[9G[Juse admin[18G[9G[Juse admin[18G
+switched to db admin
+mongos> [9G[Jdb.runCommand({addshard:"localhost:10000", name:"shard10000"});[72G[9G[Jdb.runCommand({addshard:"localhost:10000", name:"shard10000"});[72G
+{
+	"ok" : 0,
+	"errmsg" : "can't add shard localhost:10000 because a local database 'test_sharding' exists in another shard10000:localhost:10000"
+}
+mongos> [9G[Jdb.runCommand({addshard:"localhost:10000", name:"shard10000"});[72G[9G[J[9Guse test_sharding[9G[Juse test_sharding[26G
+switched to db test_sharding
+mongos> sh.enableSharding("test_sharding")[9G[Jsh.enableSharding("test_sharding")[43G
+{ "ok" : 0, "errmsg" : "already enabled" }
+mongos> [9G[Jsh.enableSharding("test_sharding")[43G[9G[Juse test_sharding[26G[9G[Jdb.runCommand({addshard:"localhost:10000", name:"shard10000"});[72G[9G[Juse admin[18G[9G[Jdb.publicaciones.ensureIndex({"idPublicacion": 1})[59G[9G[Jdb.publicaciones.ensureIndex({"idPublicacion": 1})[59G
+{
+	"raw" : {
+		"localhost:10000" : {
+			"numIndexesBefore" : 2,
+			"note" : "all indexes already exist",
+			"ok" : 1
+		}
+	},
+	"ok" : 1
+}
+mongos> sh.shardCollection("test_sharding.people", {"zip": 1} )[9G[Jsh.shardCollection[1;34m([0m"test_sharding.people", {"zip": 1} )[63G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[62G[9G[Jsh.shardCollection("test_sharding.people", [1;34m{[0m"zip": 1} )[61G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[60G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[59G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[58G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[57G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[56G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[55G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[54G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[53G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1[1;34m}[0m )[52G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[51G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[50G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[49G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[48G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[47G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[46G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[45G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[46G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[47G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[48G[9G[Jsh.shardCollection("test_sharding.people", {"zip": 1} )[49G[9G[Jsh.shardCollection("test_sharding.peopl", {"zip": 1} )[48G[9G[Jsh.shardCollection("test_sharding.peop", {"zip": 1} )[47G[9G[Jsh.shardCollection("test_sharding.peo", {"zip": 1} )[46G[9G[Jsh.shardCollection("test_sharding.pe", {"zip": 1} )[45G[9G[Jsh.shardCollection("test_sharding.p", {"zip": 1} )[44G[9G[Jsh.shardCollection("test_sharding.pu", {"zip": 1} )[45G[9G[Jsh.shardCollection("test_sharding.pub", {"zip": 1} )[46G[9G[Jsh.shardCollection("test_sharding.publ", {"zip": 1} )[47G[9G[Jsh.shardCollection("test_sharding.publi", {"zip": 1} )[48G[9G[Jsh.shardCollection("test_sharding.public", {"zip": 1} )[49G[9G[Jsh.shardCollection("test_sharding.publica", {"zip": 1} )[50G[9G[Jsh.shardCollection("test_sharding.publicac", {"zip": 1} )[51G[9G[Jsh.shardCollection("test_sharding.publicaci", {"zip": 1} )[52G[9G[Jsh.shardCollection("test_sharding.publicacio", {"zip": 1} )[53G[9G[Jsh.shardCollection("test_sharding.publicacion", {"zip": 1} )[54G[9G[Jsh.shardCollection("test_sharding.publicacione", {"zip": 1} )[55G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1} )[56G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1} )[57G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1} )[58G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1[1;34m}[0m )[59G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1} )[60G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1} )[61G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1} )[62G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1} )[63G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zip": 1} )[64G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"zi": 1} )[63G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"z": 1} )[62G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"": 1} )[61G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"i": 1} )[62G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"id": 1} )[63G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idP": 1} )[64G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPu": 1} )[65G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPub": 1} )[66G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPubl": 1} )[67G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPubli": 1} )[68G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublic": 1} )[69G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublica": 1} )[70G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicac": 1} )[71G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicaci": 1} )[72G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacio": 1} )[73G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1A[74G[9G[Jsh.shardCollection("test_sharding.publicaciones", {"idPublicacion": 1} )
+[1G
+{ "collectionsharded" : "test_sharding.publicaciones", "ok" : 1 }
+mongos> load("agra[9G[Jload("agr[18GegarDatos.js")[9G[Jload("agregarDatos.js")[32G
+2016-06-21T21:09:15.615-0300 file [agregarDatos.js] doesn't exist
+2016-06-21T21:09:15.615-0300 Error: error loading js file: agregarDatos.js
+mongos> [9G[Jload("agregarDatos.js")[32G[9G[Jload[1;34m([0m"agregarDatos.js")[31G[9G[Jload("agregarDatos.js")[30G[9G[Jload("agregarDatos.js")[29G[9G[Jload("agregarDatos.js")[28G[9G[Jload("agregarDatos.js")[27G[9G[Jload("agregarDatos.js")[26G[9G[Jload("agregarDatos.js")[27G[9G[Jload("agregarDato.js")[26G[9G[Jload("agregarDat.js")[25G[9G[Jload("agregarData.js")[26G[9G[Jload("agregarData.js")[31G
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 1.99MiB docs : 18644 chunks : 1
+ estimated data per chunk : 1.99MiB
+ estimated docs per chunk : 18644
+
+Shard shard10001 at localhost:10001
+ data : 148KiB docs : 1356 chunks : 2
+ estimated data per chunk : 74KiB
+ estimated docs per chunk : 678
+
+Totals
+ data : 2.13MiB docs : 20000 chunks : 3
+ Shard shard10000 contains 93.22% data, 93.22% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.78% data, 6.78% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 3.97MiB docs : 37256 chunks : 1
+ estimated data per chunk : 3.97MiB
+ estimated docs per chunk : 37256
+
+Shard shard10001 at localhost:10001
+ data : 300KiB docs : 2744 chunks : 2
+ estimated data per chunk : 150KiB
+ estimated docs per chunk : 1372
+
+Totals
+ data : 4.27MiB docs : 40000 chunks : 3
+ Shard shard10000 contains 93.14% data, 93.14% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.86% data, 6.86% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 5.96MiB docs : 55838 chunks : 1
+ estimated data per chunk : 5.96MiB
+ estimated docs per chunk : 55838
+
+Shard shard10001 at localhost:10001
+ data : 455KiB docs : 4162 chunks : 2
+ estimated data per chunk : 227KiB
+ estimated docs per chunk : 2081
+
+Totals
+ data : 6.4MiB docs : 60000 chunks : 3
+ Shard shard10000 contains 93.06% data, 93.06% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.93% data, 6.93% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 7.95MiB docs : 74498 chunks : 1
+ estimated data per chunk : 7.95MiB
+ estimated docs per chunk : 74498
+
+Shard shard10001 at localhost:10001
+ data : 601KiB docs : 5502 chunks : 2
+ estimated data per chunk : 300KiB
+ estimated docs per chunk : 2751
+
+Totals
+ data : 8.54MiB docs : 80000 chunks : 3
+ Shard shard10000 contains 93.12% data, 93.12% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.87% data, 6.87% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 9.95MiB docs : 93204 chunks : 1
+ estimated data per chunk : 9.95MiB
+ estimated docs per chunk : 93204
+
+Shard shard10001 at localhost:10001
+ data : 743KiB docs : 6796 chunks : 2
+ estimated data per chunk : 371KiB
+ estimated docs per chunk : 3398
+
+Totals
+ data : 10.68MiB docs : 100000 chunks : 3
+ Shard shard10000 contains 93.2% data, 93.2% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.79% data, 6.79% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 11.93MiB docs : 111763 chunks : 1
+ estimated data per chunk : 11.93MiB
+ estimated docs per chunk : 111763
+
+Shard shard10001 at localhost:10001
+ data : 900KiB docs : 8237 chunks : 2
+ estimated data per chunk : 450KiB
+ estimated docs per chunk : 4118
+
+Totals
+ data : 12.81MiB docs : 120000 chunks : 3
+ Shard shard10000 contains 93.13% data, 93.13% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.86% data, 6.86% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 13.92MiB docs : 130401 chunks : 1
+ estimated data per chunk : 13.92MiB
+ estimated docs per chunk : 130401
+
+Shard shard10001 at localhost:10001
+ data : 1.02MiB docs : 9599 chunks : 2
+ estimated data per chunk : 524KiB
+ estimated docs per chunk : 4799
+
+Totals
+ data : 14.95MiB docs : 140000 chunks : 3
+ Shard shard10000 contains 93.14% data, 93.14% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.85% data, 6.85% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	1
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 1) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 15.91MiB docs : 149041 chunks : 1
+ estimated data per chunk : 15.91MiB
+ estimated docs per chunk : 149041
+
+Shard shard10001 at localhost:10001
+ data : 1.16MiB docs : 10959 chunks : 2
+ estimated data per chunk : 599KiB
+ estimated docs per chunk : 5479
+
+Totals
+ data : 17.08MiB docs : 160000 chunks : 3
+ Shard shard10000 contains 93.15% data, 93.15% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.84% data, 6.84% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 17.91MiB docs : 167729 chunks : 2
+ estimated data per chunk : 8.95MiB
+ estimated docs per chunk : 83864
+
+Shard shard10001 at localhost:10001
+ data : 1.31MiB docs : 12271 chunks : 2
+ estimated data per chunk : 671KiB
+ estimated docs per chunk : 6135
+
+Totals
+ data : 19.22MiB docs : 180000 chunks : 4
+ Shard shard10000 contains 93.18% data, 93.18% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.81% data, 6.81% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 19.9MiB docs : 186353 chunks : 2
+ estimated data per chunk : 9.95MiB
+ estimated docs per chunk : 93176
+
+Shard shard10001 at localhost:10001
+ data : 1.45MiB docs : 13647 chunks : 2
+ estimated data per chunk : 746KiB
+ estimated docs per chunk : 6823
+
+Totals
+ data : 21.36MiB docs : 200000 chunks : 4
+ Shard shard10000 contains 93.17% data, 93.17% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.82% data, 6.82% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 21.89MiB docs : 205006 chunks : 2
+ estimated data per chunk : 10.94MiB
+ estimated docs per chunk : 102503
+
+Shard shard10001 at localhost:10001
+ data : 1.6MiB docs : 14994 chunks : 2
+ estimated data per chunk : 819KiB
+ estimated docs per chunk : 7497
+
+Totals
+ data : 23.49MiB docs : 220000 chunks : 4
+ Shard shard10000 contains 93.18% data, 93.18% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.81% data, 6.81% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 23.88MiB docs : 223626 chunks : 2
+ estimated data per chunk : 11.94MiB
+ estimated docs per chunk : 111813
+
+Shard shard10001 at localhost:10001
+ data : 1.74MiB docs : 16374 chunks : 2
+ estimated data per chunk : 895KiB
+ estimated docs per chunk : 8187
+
+Totals
+ data : 25.63MiB docs : 240000 chunks : 4
+ Shard shard10000 contains 93.17% data, 93.17% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.82% data, 6.82% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 25.87MiB docs : 242295 chunks : 2
+ estimated data per chunk : 12.93MiB
+ estimated docs per chunk : 121147
+
+Shard shard10001 at localhost:10001
+ data : 1.89MiB docs : 17705 chunks : 2
+ estimated data per chunk : 968KiB
+ estimated docs per chunk : 8852
+
+Totals
+ data : 27.77MiB docs : 260000 chunks : 4
+ Shard shard10000 contains 93.19% data, 93.19% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.8% data, 6.8% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 27.86MiB docs : 260925 chunks : 2
+ estimated data per chunk : 13.93MiB
+ estimated docs per chunk : 130462
+
+Shard shard10001 at localhost:10001
+ data : 2.03MiB docs : 19075 chunks : 2
+ estimated data per chunk : 1.01MiB
+ estimated docs per chunk : 9537
+
+Totals
+ data : 29.9MiB docs : 280000 chunks : 4
+ Shard shard10000 contains 93.18% data, 93.18% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.81% data, 6.81% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 29.86MiB docs : 279598 chunks : 2
+ estimated data per chunk : 14.93MiB
+ estimated docs per chunk : 139799
+
+Shard shard10001 at localhost:10001
+ data : 2.17MiB docs : 20402 chunks : 2
+ estimated data per chunk : 1.08MiB
+ estimated docs per chunk : 10201
+
+Totals
+ data : 32.04MiB docs : 300000 chunks : 4
+ Shard shard10000 contains 93.19% data, 93.19% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.8% data, 6.8% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 31.85MiB docs : 298226 chunks : 2
+ estimated data per chunk : 15.92MiB
+ estimated docs per chunk : 149113
+
+Shard shard10001 at localhost:10001
+ data : 2.32MiB docs : 21774 chunks : 2
+ estimated data per chunk : 1.16MiB
+ estimated docs per chunk : 10887
+
+Totals
+ data : 34.17MiB docs : 320000 chunks : 4
+ Shard shard10000 contains 93.19% data, 93.19% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.8% data, 6.8% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 33.84MiB docs : 316856 chunks : 2
+ estimated data per chunk : 16.92MiB
+ estimated docs per chunk : 158428
+
+Shard shard10001 at localhost:10001
+ data : 2.47MiB docs : 23144 chunks : 2
+ estimated data per chunk : 1.23MiB
+ estimated docs per chunk : 11572
+
+Totals
+ data : 36.31MiB docs : 340000 chunks : 4
+ Shard shard10000 contains 93.19% data, 93.19% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.8% data, 6.8% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	2
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 3) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 35.83MiB docs : 335479 chunks : 2
+ estimated data per chunk : 17.91MiB
+ estimated docs per chunk : 167739
+
+Shard shard10001 at localhost:10001
+ data : 2.61MiB docs : 24521 chunks : 2
+ estimated data per chunk : 1.3MiB
+ estimated docs per chunk : 12260
+
+Totals
+ data : 38.45MiB docs : 360000 chunks : 4
+ Shard shard10000 contains 93.18% data, 93.18% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.81% data, 6.81% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	3
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "706994" } on : shard10000 Timestamp(3, 4) 
+			{ "idPublicacion" : "706994" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 5) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 37.81MiB docs : 354060 chunks : 3
+ estimated data per chunk : 12.6MiB
+ estimated docs per chunk : 118020
+
+Shard shard10001 at localhost:10001
+ data : 2.77MiB docs : 25940 chunks : 2
+ estimated data per chunk : 1.38MiB
+ estimated docs per chunk : 12970
+
+Totals
+ data : 40.58MiB docs : 380000 chunks : 5
+ Shard shard10000 contains 93.17% data, 93.17% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.82% data, 6.82% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	2
+				shard10000	3
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(3, 2) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "706994" } on : shard10000 Timestamp(3, 4) 
+			{ "idPublicacion" : "706994" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 5) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 39.8MiB docs : 372697 chunks : 3
+ estimated data per chunk : 13.26MiB
+ estimated docs per chunk : 124232
+
+Shard shard10001 at localhost:10001
+ data : 2.91MiB docs : 27303 chunks : 2
+ estimated data per chunk : 1.45MiB
+ estimated docs per chunk : 13651
+
+Totals
+ data : 42.72MiB docs : 400000 chunks : 5
+ Shard shard10000 contains 93.17% data, 93.17% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 6.82% data, 6.82% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	3
+				shard10000	3
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "255429" } on : shard10001 Timestamp(4, 0) 
+			{ "idPublicacion" : "255429" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(4, 1) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "706994" } on : shard10000 Timestamp(3, 4) 
+			{ "idPublicacion" : "706994" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 5) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 33.42MiB docs : 312962 chunks : 3
+ estimated data per chunk : 11.14MiB
+ estimated docs per chunk : 104320
+
+Shard shard10001 at localhost:10001
+ data : 11.43MiB docs : 107038 chunks : 3
+ estimated data per chunk : 3.81MiB
+ estimated docs per chunk : 35679
+
+Totals
+ data : 44.86MiB docs : 420000 chunks : 6
+ Shard shard10000 contains 74.51% data, 74.51% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 25.48% data, 25.48% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	3
+				shard10000	3
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "255429" } on : shard10001 Timestamp(4, 0) 
+			{ "idPublicacion" : "255429" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(4, 1) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "706994" } on : shard10000 Timestamp(3, 4) 
+			{ "idPublicacion" : "706994" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 5) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 35.01MiB docs : 327860 chunks : 3
+ estimated data per chunk : 11.67MiB
+ estimated docs per chunk : 109286
+
+Shard shard10001 at localhost:10001
+ data : 11.97MiB docs : 112140 chunks : 3
+ estimated data per chunk : 3.99MiB
+ estimated docs per chunk : 37380
+
+Totals
+ data : 46.99MiB docs : 440000 chunks : 6
+ Shard shard10000 contains 74.51% data, 74.51% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 25.48% data, 25.48% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	3
+				shard10000	3
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "255429" } on : shard10001 Timestamp(4, 0) 
+			{ "idPublicacion" : "255429" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(4, 1) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "706994" } on : shard10000 Timestamp(3, 4) 
+			{ "idPublicacion" : "706994" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 5) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 36.6MiB docs : 342681 chunks : 3
+ estimated data per chunk : 12.2MiB
+ estimated docs per chunk : 114227
+
+Shard shard10001 at localhost:10001
+ data : 12.53MiB docs : 117319 chunks : 3
+ estimated data per chunk : 4.17MiB
+ estimated docs per chunk : 39106
+
+Totals
+ data : 49.13MiB docs : 460000 chunks : 6
+ Shard shard10000 contains 74.49% data, 74.49% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 25.5% data, 25.5% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	3
+				shard10000	3
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "255429" } on : shard10001 Timestamp(4, 0) 
+			{ "idPublicacion" : "255429" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(4, 1) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "706994" } on : shard10000 Timestamp(3, 4) 
+			{ "idPublicacion" : "706994" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 5) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 38.18MiB docs : 357539 chunks : 3
+ estimated data per chunk : 12.72MiB
+ estimated docs per chunk : 119179
+
+Shard shard10001 at localhost:10001
+ data : 13.08MiB docs : 122461 chunks : 3
+ estimated data per chunk : 4.35MiB
+ estimated docs per chunk : 40820
+
+Totals
+ data : 51.26MiB docs : 480000 chunks : 6
+ Shard shard10000 contains 74.48% data, 74.48% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 25.51% data, 25.51% docs in cluster, avg obj size on shard : 112B
+
+
+--- Sharding Status --- 
+  sharding version: {
+	"_id" : 1,
+	"version" : 4,
+	"minCompatibleVersion" : 4,
+	"currentVersion" : 5,
+	"clusterId" : ObjectId("5769d68617440abe5e6a3a6c")
+}
+  shards:
+	{  "_id" : "shard10000",  "host" : "localhost:10000" }
+	{  "_id" : "shard10001",  "host" : "localhost:10001" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test_sharding",  "partitioned" : true,  "primary" : "shard10000" }
+		test_sharding.publicaciones
+			shard key: { "idPublicacion" : 1 }
+			chunks:
+				shard10001	3
+				shard10000	3
+			{ "idPublicacion" : { "$minKey" : 1 } } -->> { "idPublicacion" : "069129" } on : shard10001 Timestamp(2, 0) 
+			{ "idPublicacion" : "069129" } -->> { "idPublicacion" : "255429" } on : shard10001 Timestamp(4, 0) 
+			{ "idPublicacion" : "255429" } -->> { "idPublicacion" : "508722" } on : shard10000 Timestamp(4, 1) 
+			{ "idPublicacion" : "508722" } -->> { "idPublicacion" : "706994" } on : shard10000 Timestamp(3, 4) 
+			{ "idPublicacion" : "706994" } -->> { "idPublicacion" : "999972" } on : shard10000 Timestamp(3, 5) 
+			{ "idPublicacion" : "999972" } -->> { "idPublicacion" : { "$maxKey" : 1 } } on : shard10001 Timestamp(3, 0) 
+
+
+Shard shard10000 at localhost:10000
+ data : 39.78MiB docs : 372448 chunks : 3
+ estimated data per chunk : 13.25MiB
+ estimated docs per chunk : 124149
+
+Shard shard10001 at localhost:10001
+ data : 13.62MiB docs : 127552 chunks : 3
+ estimated data per chunk : 4.54MiB
+ estimated docs per chunk : 42517
+
+Totals
+ data : 53.4MiB docs : 500000 chunks : 6
+ Shard shard10000 contains 74.48% data, 74.48% docs in cluster, avg obj size on shard : 112B
+ Shard shard10001 contains 25.51% data, 25.51% docs in cluster, avg obj size on shard : 112B
+
+
+true
+mongos> [9G[J[9Gmongos> [9G[J[9Gmongos> exit[9G[Jexit[13G
+
+
+bye

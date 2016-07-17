@@ -1,0 +1,136 @@
+\documentclass[a4paper]{article}
+
+\usepackage[paper=a4paper, left=1.5cm, right=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
+\usepackage[spanish,activeacute]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{alltt}
+\usepackage{graphicx} %Para incluir el logo de la UBA
+\usepackage{caratula} %Para armar el cuadro de integrantes
+\usepackage{multirow} %Para poder poner varias lineas juntas sin divisiones en una tabla
+\usepackage[lined,ruled,linesnumbered]{algorithm2e}
+\usepackage{algpseudocode}
+\usepackage{scrextend}
+\usepackage{blindtext}
+
+\usepackage{pdfpages}
+
+
+%Cosas para escribir codigo fuente
+%Fuente: http://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\usepackage{listings}
+\usepackage{color}
+
+\setcounter{secnumdepth}{5}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{myorange}{rgb}{1,0.4,0.2}
+\definecolor{myblue}{rgb}{0,0,0.65}
+
+
+\makeatletter
+\newcommand\invisiblesubsection[1]{%
+  \refstepcounter{subsection}%
+  \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}#1}%
+  \subsectionmark{#1}\phantom{}}
+\makeatother
+
+\newcommand{\insertfigscaled}[2]{
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=#2]{#1}
+	\end{figure}
+}
+
+
+%Configuracion para los listings
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\small,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keywordstyle=\color{myblue},       % keyword style
+  language=Octave,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{myorange},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\renewcommand{\lstlistingname}{C\'{o}digo}
+
+\lstset{language=C++,caption={Descriptive Caption Text},label=DescriptiveLabel}
+
+
+%\topmargin = -1cm
+%\textheight = 24cm
+
+\begin{document}
+
+\integrante{Taravilse, Leopoldo}{464/08}{ltaravilse@gmail.com}
+\integrante{Langberg, Mart\'in}{86/10}{martinlangberg@gmail.com}
+\integrante{Claverino, Daniel}{273/10}{dclave@gmail.com}
+\integrante{Conde, Fernando}{423/09}{ferconde87@gmail.com}
+
+\def\Materia{Ingenier\'ia del Software II}
+\def\Titulo{Trabajo Pr\'{a}ctico II - 1ra entrega}
+\def\Fecha{1 de junio de 2015}
+
+%----- CARATULA -----%
+
+\thispagestyle{empty}
+
+\begin{center}
+        \includegraphics[scale = 0.25]{logo_uba.jpg}
+\end{center}
+
+\vspace{5mm}
+
+\begin{center}
+        {\textbf{\large UNIVERSIDAD DE BUENOS AIRES}}\\[1.5em]
+        {\textbf{\large Departamento de Computaci\'{o}n}}\\[1.5em]
+    {\textbf{\large Facultad de Ciencias Exactas y Naturales}}\\
+    \vspace{35mm}
+    {\LARGE\textbf{\Materia}}\\[1em]    
+    \vspace{15mm}
+    {\Large \textbf{\Titulo}}\\[1em]
+    \vspace{15mm}
+    {\textbf{\Large \Fecha}}\\
+    \vspace{15mm}
+    \textbf{\tablaints}
+\end{center}
+
+\parskip=5pt
+%\setlength{\parindent}{0pt}
+
+\newpage
+\includepdf[pages={2-15}]{isoft21eraentregaTP2.pdf}
+%\tableofcontents
+%\newpage
+
+%\setcounter{page}{1}
+%#\pagenumbering{arabic}
+%\pagestyle{plain}
+
+%\input{main}
+
+
+\end{document}

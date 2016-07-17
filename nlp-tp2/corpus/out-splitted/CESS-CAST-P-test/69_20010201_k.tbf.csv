@@ -1,0 +1,40 @@
+Totalfina-Elf	np00000	B-NP
+gana	vmip3s0	B-VP
+1,26		B-NP
+billones	ncmp000	I-NP
+,	fc	I-NP
+el	da0ms0	I-NP
+127%	zp	I-NP
+más	rg	I-NP
+.	fp	O
+El	da0ms0	B-NP
+beneficio	ncms000	I-NP
+no	rn	O
+incluye	vmip3s0	B-VP
+las	da0fp0	B-NP
+cargas	ncfp000	I-NP
+excepcionales	aq0cp0	I-NP
+relacionadas	aq0fpp	O
+con	sps00	O
+el	da0ms0	B-NP
+accidente	ncms000	I-NP
+del	spcms	I-NP
+petrolero	ncms000	I-NP
+Erika	np00000	I-NP
+,	fc	I-NP
+por	sps00	I-NP
+valor	ncms000	I-NP
+de	sps00	I-NP
+183.024		I-NP
+millones	ncmp000	I-NP
+de	sps00	I-NP
+pesetas	zm	I-NP
+,	fc	I-NP
+ni	cc	I-NP
+ingresos	ncmp000	I-NP
+por	sps00	I-NP
+plusvalías	ncfp000	I-NP
+de	sps00	I-NP
+49.915		I-NP
+millones	ncmp000	I-NP
+.	fp	O

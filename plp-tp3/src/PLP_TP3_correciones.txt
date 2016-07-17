@@ -1,0 +1,27 @@
+
+Ejercicio 1 (igualdad / hash)
+
+ - Traten de no implementarlo en base a String.
+ - Hablando informalmente, piensen que para nosotros dos elecciones van a ser la misma cuando son del mismo tipo.
+ - Tienen implementada la igualdad con exactamente el mismo código en todas las subclases de Eleccion, esto no tiene mucho sentido.
+
+Ejercicio 3 (elección superadora)
+
+ - Están fijando en cada subclase cuál es su elección superadora. Esto no está conceptualmente mal, pero les habíamos pedido en la consigna que no lo hagan.
+ - Fíjense que nosotros sugerimos una solución usando metaprogramación. Esto no tiene por qué ser muy rebuscado: iterar sobre todas las subclases de elección es hacer metaprogramación (mensaje Eleccion class>>todas).
+
+Ejercicio 5 (jugador adaptativo)
+
+ - Están redefiniendo todos los eventos (ganoEligiendo:…, empatoEligiendo:…, perdioEligiendo:…) en la clase padre para guardarse datos que después usan sólo en el adaptativo.
+ - La idea es que cada jugador se guarde él sólo lo que necesita, de modo que sean independientes entre sí y puedan guardarse cosas distintas. Tal vez tiene sentido redefinir estos eventos sólo para el adaptativo.
+
+Ejercicio 7 (jugador aleatorio)
+
+ - Implementen el aleatorio verdadero. Busquen un objeto que sea polimófico con el generador para test que les dimos (shift+enter es su amigo!)
+ - No hardcodeen el número utilizado para generar el número aleatorio (hoy tienen nextInt: 1). Piensen en qué rango debe vivir el número aleatorio que quieren obtener.
+
+Ejercicio 8 (jugador humano)
+
+ - La implementación está bien, pero traten de no hacer tests que levantan ventanas.
+ - La idea de los tests de unidad es que puedan correr solos, rápido, y que estén en control de todo lo que pasa (ie, que no dependan de input externo)
+

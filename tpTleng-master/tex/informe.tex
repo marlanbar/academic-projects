@@ -1,0 +1,64 @@
+\documentclass[10pt, a4paper,english,spanish]{article}
+
+
+\parindent=15 pt
+\parskip=0 pt
+\usepackage[width=15.5cm, left=3cm, top=2.5cm, height= 24.5cm]{geometry}
+
+\usepackage{pdflscape}
+\usepackage{listings}
+\lstset{ %
+	language=Haskell,                % choose the language of the code
+	basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+	numbers=left,                   % where to put the line-numbers
+	numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+	stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+	numbersep=5pt,                  % how far the line-numbers are from the code
+	backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+	showspaces=false,               % show spaces adding particular underscores
+	showstringspaces=false,         % underline spaces within strings
+	showtabs=false,                 % show tabs within strings adding particular underscores
+	frame=single,           % adds a frame around the code
+	tabsize=4,          % sets default tabsize to 2 spaces
+	captionpos=b,           % sets the caption-position to bottom
+	breaklines=true,        % sets automatic line breaking
+	breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+}
+
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+
+
+
+\usepackage{caratula}
+\usepackage{graphicx}
+%\usepackage{captdef}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+
+\materia{Teor\'ia de Lenguajes}
+\titulo{Trabajo Pr\'actico MyLanga}
+\integrante{Langberg, Martin}{086/10}{martinlangberg@gmail.com}
+\integrante{Gallardo, Guillermo}{032/10}{gagdiez@hotmail.com}
+\integrante{Scoccola, Luis}{382/10}{luis.scoccola@gmail.com}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\include{introduccion}
+\include{gramatica}
+\include{resultado}
+\include{respuestas}
+\include{conclusiones}
+\include{codigo}
+
+
+\end{document}

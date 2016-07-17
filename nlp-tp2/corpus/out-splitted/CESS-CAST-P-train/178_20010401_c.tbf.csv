@@ -1,0 +1,44 @@
+El	da0ms0	B-NP
+británico	ncms000	I-NP
+Rumon_Gamba	np00000	I-NP
+dirige	vmip3s0	B-VP
+a	sps00	O
+la	da0fs0	B-NP
+formación	ncfs000	I-NP
+catalana	aq0fs0	I-NP
+en	sps00	O
+un	di0ms0	B-NP
+programa	ncms000	I-NP
+con	sps00	I-NP
+piezas	ncfp000	I-NP
+de	sps00	I-NP
+Rossini	np00000	I-NP
+,	fc	I-NP
+Rachmaninov	np00000	I-NP
+y	cc	I-NP
+Bartók	np00000	I-NP
+.	fp	O
+En	sps00	O
+el	da0ms0	B-NP
+concierto	ncms000	I-NP
+colabora	vmip3s0	B-VP
+el	da0ms0	B-NP
+pianista	nccs000	I-NP
+italiano	aq0ms0	I-NP
+Maurizio_Baglini	np00000	I-NP
+.	fp	O
+Auditori	np00000	B-NP
+.	fp	O
+Sala_Simfònica_Lepant_150	np00000	B-NP
+.	fp	O
+Horario	ncms000	B-NP
+:	fd	I-NP
+11.00		I-NP
+horas	ncfp000	I-NP
+.	fp	O
+De	sps00	O
+1.100		B-NP
+a	sps00	I-NP
+6.950		I-NP
+pesetas	zm	I-NP
+.	fp	O

@@ -1,0 +1,75 @@
+Los	da0mp0	B-NP
+inversores	ncmp000	I-NP
+solicitaron	vmis3p0	B-VP
+letras	ncfp000	B-NP
+por	sps00	I-NP
+importe	ncms000	I-NP
+de	sps00	I-NP
+948		I-NP
+millones	ncmp000	I-NP
+de	sps00	I-NP
+euros	zm	I-NP
+(	fpa	B-NP
+157.734		I-NP
+millones	ncmp000	I-NP
+de	sps00	I-NP
+pesetas	zm	I-NP
+)	fpt	I-NP
+,	fc	O
+aunque	cs	O
+el	da0ms0	B-NP
+Tesoro	np00000	I-NP
+sólo	rg	O
+adjudicó	vmis3s0	B-VP
+títulos	ncmp000	B-NP
+por	sps00	I-NP
+importe	ncms000	I-NP
+de	sps00	I-NP
+125		I-NP
+millones	ncmp000	I-NP
+de	sps00	I-NP
+euros	zm	I-NP
+(	fpa	B-NP
+20.798		I-NP
+millones	ncmp000	I-NP
+de	sps00	I-NP
+pesetas	zm	I-NP
+)	fpt	I-NP
+.	fp	O
+La	da0fs0	B-NP
+rentabilidad	ncfs000	I-NP
+de	sps00	I-NP
+las	da0fp0	I-NP
+letras	ncfp000	I-NP
+a	sps00	I-NP
+seis	dn0cp0	I-NP
+meses	ncmp000	I-NP
+ha	vaip3s0	B-VP
+aumentado	vmp00sm	I-VP
+desde	sps00	O
+el	da0ms0	B-NP
+comienzo	ncms000	I-NP
+de	sps00	I-NP
+este	dd0ms0	I-NP
+año		I-NP
+un	di0ms0	I-NP
+1,337_por_ciento	zp	I-NP
+,	fc	O
+al	spcms	O
+pasar	vmn0000	O
+del	spcms	O
+3,402_por_ciento	zp	B-NP
+del	spcms	I-NP
+cierre	ncms000	I-NP
+de	sps00	I-NP
+1999		I-NP
+al	spcms	O
+4,739_por_ciento	zp	B-NP
+en	sps00	O
+que	pr0cn000	B-NP
+lo	pp3msa00	B-NP
+situó	vmis3s0	B-VP
+hoy	rg	O
+el	da0ms0	B-NP
+Tesoro	np00000	I-NP
+.	fp	O

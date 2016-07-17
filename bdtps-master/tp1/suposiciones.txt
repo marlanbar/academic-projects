@@ -1,0 +1,4 @@
+Suposiciones:
+	- La cantidad de publicaciones Rubi que se puede realizar por mes es fija (3) y no es necesario almacenarla en la db. 
+	- Hay 1 solo tipo de membresía (Rubi).
+	- La vigencia de una subasta es la misma que la de una venta.

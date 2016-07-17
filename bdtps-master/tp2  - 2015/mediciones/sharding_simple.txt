@@ -1,0 +1,237 @@
+20000
+Totals
+ data : 4.57MiB docs : 20000 chunks : 3
+ Shard shard10000 contains 56.32% data, 56.32% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.46% data, 15.46% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.21% data, 28.21% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+40000
+Totals
+ data : 9.15MiB docs : 40000 chunks : 3
+ Shard shard10000 contains 56.51% data, 56.51% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.31% data, 15.31% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.17% data, 28.17% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+60000
+Totals
+ data : 13.73MiB docs : 60000 chunks : 3
+ Shard shard10000 contains 56.38% data, 56.38% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.3% data, 15.3% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.31% data, 28.31% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+80000
+Totals
+ data : 18.31MiB docs : 80000 chunks : 3
+ Shard shard10000 contains 56.46% data, 56.46% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.27% data, 15.27% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.26% data, 28.26% docs in cluster, avg obj size on shard : 240B
+#########################################################################
+100000
+Totals
+ data : 22.88MiB docs : 100000 chunks : 3
+ Shard shard10000 contains 56.56% data, 56.56% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.23% data, 15.23% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.19% data, 28.19% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+120000
+Totals
+ data : 27.46MiB docs : 120000 chunks : 3
+ Shard shard10000 contains 56.66% data, 56.66% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.17% data, 15.17% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.16% data, 28.16% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+140000
+Totals
+ data : 32.04MiB docs : 140000 chunks : 5
+ Shard shard10000 contains 29.28% data, 29.28% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.09% data, 15.09% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.2% data, 28.2% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 0% data, 0% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.42% data, 27.42% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+160000
+Totals
+ data : 36.62MiB docs : 160000 chunks : 5
+ Shard shard10000 contains 29.26% data, 29.26% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.09% data, 15.09% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.2% data, 28.2% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 0% data, 0% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.43% data, 27.43% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+180000
+Totals
+ data : 41.19MiB docs : 180000 chunks : 5
+ Shard shard10000 contains 29.29% data, 29.29% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.07% data, 15.07% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.24% data, 28.24% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 0% data, 0% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.38% data, 27.38% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+200000
+Totals
+ data : 45.77MiB docs : 200000 chunks : 5
+ Shard shard10000 contains 29.29% data, 29.29% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.08% data, 15.08% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.23% data, 28.23% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 0% data, 0% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.38% data, 27.38% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+220000
+Totals
+ data : 50.35MiB docs : 220000 chunks : 5
+ Shard shard10000 contains 29.29% data, 29.29% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.06% data, 15.06% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.25% data, 28.25% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 0% data, 0% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.38% data, 27.38% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+240000
+Totals
+ data : 54.93MiB docs : 240000 chunks : 5
+ Shard shard10000 contains 29.27% data, 29.27% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.1% data, 15.1% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.29% data, 28.29% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 0% data, 0% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.32% data, 27.32% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+260000
+Totals
+ data : 59.5MiB docs : 260000 chunks : 5
+ Shard shard10000 contains 29.29% data, 29.29% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 15.11% data, 15.11% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 28.27% data, 28.27% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 0% data, 0% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.31% data, 27.31% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+280000
+Totals
+ data : 64.08MiB docs : 280000 chunks : 11
+ Shard shard10000 contains 16.11% data, 16.11% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.31% data, 28.31% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.28% data, 15.28% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.97% data, 12.97% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.31% data, 27.31% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+300000
+Totals
+ data : 68.66MiB docs : 300000 chunks : 11
+ Shard shard10000 contains 16.09% data, 16.09% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.33% data, 28.33% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.27% data, 15.27% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.96% data, 12.96% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.32% data, 27.32% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+320000
+Totals
+ data : 73.24MiB docs : 320000 chunks : 11
+ Shard shard10000 contains 16.11% data, 16.11% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.35% data, 28.35% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.26% data, 15.26% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.96% data, 12.96% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.3% data, 27.3% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+340000
+Totals
+ data : 77.81MiB docs : 340000 chunks : 11
+ Shard shard10000 contains 16.09% data, 16.09% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.37% data, 28.37% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.27% data, 15.27% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.94% data, 12.94% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.31% data, 27.31% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+360000
+Totals
+ data : 82.39MiB docs : 360000 chunks : 11
+ Shard shard10000 contains 16.1% data, 16.1% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.4% data, 28.4% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.25% data, 15.25% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.94% data, 12.94% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.28% data, 27.28% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+380000
+Totals
+ data : 86.97MiB docs : 380000 chunks : 11
+ Shard shard10000 contains 16.07% data, 16.07% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.4% data, 28.4% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.28% data, 15.28% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.93% data, 12.93% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.29% data, 27.29% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+400000
+Totals
+ data : 91.55MiB docs : 400000 chunks : 11
+ Shard shard10000 contains 16.06% data, 16.06% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.4% data, 28.4% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.28% data, 15.28% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.94% data, 12.94% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.29% data, 27.29% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+420000
+Totals
+ data : 96.12MiB docs : 420000 chunks : 11
+ Shard shard10000 contains 16.08% data, 16.08% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.41% data, 28.41% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.28% data, 15.28% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.92% data, 12.92% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.28% data, 27.28% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+440000
+Totals
+ data : 100.7MiB docs : 440000 chunks : 11
+ Shard shard10000 contains 16.09% data, 16.09% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.4% data, 28.4% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.28% data, 15.28% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.92% data, 12.92% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.29% data, 27.29% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+460000
+Totals
+ data : 105.28MiB docs : 460000 chunks : 11
+ Shard shard10000 contains 16.1% data, 16.1% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.41% data, 28.41% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.27% data, 15.27% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.92% data, 12.92% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.28% data, 27.28% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+480000
+Totals
+ data : 109.86MiB docs : 480000 chunks : 11
+ Shard shard10000 contains 16.1% data, 16.1% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.42% data, 28.42% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.27% data, 15.27% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.92% data, 12.92% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.27% data, 27.27% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################
+500000
+Totals
+ data : 114.44MiB docs : 500000 chunks : 11
+ Shard shard10000 contains 16.1% data, 16.1% docs in cluster, avg obj size on shard : 240B
+ Shard shard10001 contains 28.42% data, 28.42% docs in cluster, avg obj size on shard : 240B
+ Shard shard10002 contains 15.26% data, 15.26% docs in cluster, avg obj size on shard : 240B
+ Shard shard10003 contains 12.92% data, 12.92% docs in cluster, avg obj size on shard : 240B
+ Shard shard10004 contains 27.28% data, 27.28% docs in cluster, avg obj size on shard : 240B
+
+#########################################################################

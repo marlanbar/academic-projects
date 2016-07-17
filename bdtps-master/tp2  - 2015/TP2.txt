@@ -1,0 +1,293 @@
+TP2 BBDD
+
+Parte 1
+
+a- Empleados que atendieron a clientes mayores de edad.
+embebimos los clientes dentro de los empleados,
+
+Empleado: {
+  nroLegajo: int,
+  nombre: string,
+  clientes: [{DNI, Nombre, Edad}]
+  trabajos: [{CodSector, idTarea}]
+}
+
+TODO falta agregarle la fecha en q atendieron a cada cliente.
+
+db.empleados.insert( { nroLegajo: 003, nombre: "Ernestino Juanes", clientes: [ {DNI: 40528343, Nombre: "Raul Juan Lopez", Edad: 14} ] } )
+db.empleados.insert( { nroLegajo: 002, nombre: "Juan Paez", clientes: [ {DNI: 30154820, Nombre: "Juana Perez", Edad: 23}, {DNI: 40528753, Nombre: "Raul Lopez", Edad: 15} ] } )
+db.empleados.insert( { nroLegajo: 001, nombre: "Joaquina Paez", clientes: [ {DNI: 30154820, Nombre: "Juan Perez", Edad: 25} ] } )
+
+db.empleados.find().pretty()
+
+db.empleados.aggregate( [{ $unwind: "$clientes" }, { $match: {"clientes.Edad": { $gt: 17 }}  }, {$group: { _id: "$nombre"}}	 ] )
+
+db.empleados.aggregate( [{ $unwind: "$clientes" }, { $match: {"clientes.Edad": { $gt: 17 }}  },{ $project : { _id:0, nombre: 1, nroLegajo: 1 } }  ] )
+
+db.empleados.aggregate( [{ $unwind: "$clientes" }, { $match: {"clientes.Edad": { $gt: 17 }}  }, {$group: { _id: "$nombre", nombre:{$first:"$nombre"}} }, {$project : { _id:0, nombre: 1}} ] )
+
+unwind expande el array de clientes y genera una copia de cada empleado con un solo cliente para poder filtrarlo.
+
+######################################################################################################
+
+b- Articulos mas vendidos:
+embebimos los DNIs de clientes q compraron dentro de los articulos y buscamos los maximos.
+
+Articulos: {
+  CobBarras: int,
+  nombre: string,
+  compradores: [{DNI}]
+}
+
+intento fallido:
+
+db.articulos.insert( { CodBarras: 7231564345110546, Nombre: "1984", Compradores: [22222222] } )
+
+db.articulos.insert( { CodBarras: 0231564105110546, Nombre: "El principito", Compradores: [333333333, 22222222] } )
+
+db.articulos.aggregate([{ $unwind : "$Compradores"}, {$group : { _id: "$CodBarras", total: {$sum: 1} } }])
+
+Si asumimos que hay un unico articulo mas vendido:
+
+db.articulos.aggregate([{ $unwind : "$Compradores"}, {$group : { _id: "$CodBarras", CodBarras:{$first:"$CodBarras"}, Nombre:{$first:"$Nombre"}, totalVendidos: {$sum: 1} } },{$sort: {totalVendidos: -1}}, {$limit : 1} , {$project : { _id:0,CodBarras: 1, totalVendidos: 1, Nombre: 1}} ])
+
+#######################################################################################################################
+
+c- Sectores donde trabajan exactamente 3 empleados.
+en sector le metemos un array con los empleados y la tarea q cumple el empleado en ese sector (solo los ids).
+
+Sector: {
+  CodSector: int,
+  Empleados: [ {NroLegajo, idTarea}]
+}
+
+db.sectores.insert({CodSector: 1, Empleados: [{NroLegajo: 001, idTarea: 02},{NroLegajo: 002, idTarea: 03},{NroLegajo: 003, idTarea: 01}]})
+
+db.sectores.insert({CodSector: 2, Empleados: [{NroLegajo: 001, idTarea: 01},{NroLegajo: 002, idTarea: 07},{NroLegajo: 003, idTarea: 01},{NroLegajo: 001, idTarea: 02},{NroLegajo: 008, idTarea: 12}]})
+
+db.sectores.insert({CodSector: 4, Empleados: [{NroLegajo: 007, idTarea: 02},{NroLegajo: 003, idTarea: 11}]})
+
+db.sectores.aggregate([{ $unwind : "$Empleados"}, {$group : {_id: "$CodSector",CodSector:{$first:"$CodSector"}, totalEmpleados: {$sum: 1}}},{$project : {_id: 0, CodSector: 1, totalEmpleados:1}},{$match : {totalEmpleados :3 }} ])
+
+#######################################################################################################################
+
+d- El empleado que trabaja en mas sectores
+en empleado le agregamos una lista de Sector-tarea donde trabaja.
+
+Empleado: {
+  nroLegajo: int,
+  nombre: string,
+  clientes: [{DNI, Nombre, Edad}]
+  trabajos: [{CodSector, idTarea}]
+}
+
+db.empleados.insert( { nroLegajo: 006, nombre: "Ernestino Juanes", clientes: [ {DNI: 40528343, Nombre: "Raul Juan Lopez", Edad: 14} ] , trabajos: [{CodSector: 07, Tarea: 10}]} )
+db.empleados.insert( { nroLegajo: 005, nombre: "Juan Paez", clientes: [ {DNI: 30154820, Nombre: "Juana Perez", Edad: 23}, {DNI: 40528753, Nombre: "Raul Lopez", Edad: 15} ], trabajos: [{CodSector: 01, Tarea: 02},{CodSector: 04, Tarea: 03},{CodSector: 07, Tarea: 09}] } )
+db.empleados.insert( { nroLegajo: 004, nombre: "Joaquina Paez", clientes: [ {DNI: 30154820, Nombre: "Juan Perez", Edad: 25} ], trabajos: [{CodSector: 09, Tarea: 01},{CodSector: 03, Tarea: 05}] } )
+
+db.empleados.aggregate([{ $unwind : "$trabajos"}, {$group : {_id: "$nroLegajo",nroLegajo:{$first:"$nroLegajo"}, totalTrabajos: {$sum: 1}}},{$project : {_id: 0, nroLegajo: 1, totalTrabajos:1}},{$sort : {totalTrabajos: -1}},{$limit : 1} ])
+
+#######################################################################################################################
+
+e- Ranking de los clientes con mayor cantidad de compras.
+Asumo q se refiere a ordenarlos por la cantidad de compras q hizo cada uno, porque en el DER no dice nada de ranking ni votos ni nada...
+
+Cliente: {
+  DNI: int,
+  nombre: string,
+  edad: int,
+  compras: [{CodBarra}]
+}
+
+db.clientes.insert({DNI: 32012932, nombre: "Guillermo Rodriguez", edad: 23, compras: [{CodBarra: 321},{CodBarra: 023},{CodBarra: 231},{CodBarra: 123}]})
+
+db.clientes.insert({DNI: 33002654, nombre: "Pedro Juanes", edad: 28, compras: [{CodBarra: 023},{CodBarra: 231}]})
+
+db.clientes.insert({DNI: 38165687, nombre: "Carolina Hernandez", edad: 20, compras: [{CodBarra: 123}]})
+
+
+db.clientes.aggregate([{ $unwind: "$compras"}, {$group : {_id: "$DNI",DNI:{$first:"$DNI"},nombre:{$first:"$nombre"},totalCompras: {$sum:1}} }, {$project :{ _id:0, DNI:1, nombre:1, totalCompras:1}}, {$sort : {totalCompras : -1}} ] )
+
+#######################################################################################################################
+
+f- Cantidad de compras realizadas por clientes de misma edad.
+
+db.clientes.insert({DNI: 33002654, nombre: "Juan Martinez", edad: 28, compras: [{CodBarra: 007},{CodBarra: 109},{CodBarra: 182}]})
+
+db.clientes.aggregate([{ $unwind: "$compras"}, {$group : {_id: "$edad", edad: {$first:"$edad"},totalCompras:{$sum:1}}}, {$project: {_id: 0, edad: 1, totalCompras: 1}}])
+
+#######################################################################################################################
+
+#######################################################################################################################
+
+Parte 2, MAP REDUCE:
+
+Para importar los json hacer:
+mongoimport --db DB --collection COLLECTION --file disposiciones_201*.json --jsonArray
+
+por ejemplo:
+mongoimport --db tp2 --collection disposiciones --file disposiciones_2014.json --jsonArray
+
+Para cargar el codigo desde un .js se puede hacer load("codigo.js")
+
+a- Cantidad disposiciones de tipo resolucion que se hayan realizado en abril del 2013.
+IDEA:
+map:
+si el registro dado es de tipo resolucion y tiene fecha abril del 2013, emitir("resolucion",cant=1)
+
+var map1 = function(){
+  var date = this["FechaBOJA"].split('/')
+  if(this["Tipo"] == "Resoluciones" && date[1] == 4 && date[2] == 2013){
+    emit(this["Tipo"],1)
+  }
+}
+
+reduce:
+sumar los cant q nos pasan y emitir lo mismo ("resolucion",suma)
+
+var reduce1 = function(key,values){
+  return Array.sum(values)
+}
+
+luego correr db.disposiciones.mapReduce(map1,reduce1,{out: parte2a})
+
+b- cantidad de disposiciones de cada tipo definido.
+IDEA:
+map:
+emitir (tipo,cant=1)
+
+var map2 = function(){
+  emit(this["Tipo"],1)
+}
+
+reduce:
+sumar los cant q nos pasan y emitir lo mismo (tipo,suma)
+
+var reduce2 = function(key,values){
+  return Array.sum(values)
+}
+
+luego correr db.disposiciones.mapReduce(map2,reduce2,{out: parte2b})
+
+c-la fecha mas citada por todos los informes, descartar las fechas embebidas en descripcion.
+No entiendo a que se refiere, piden la fecha q mas resoluciones tiene? Si es esto se me ocurre:
+IDEA:
+map:
+parsear la fechaBOJA y la fecha disposicion, matchearles el formato, luego:
+emitir(fechaBOJA,cant=1)
+emitir(fechaDisposicion,cant=1)
+
+var map3 = function(){
+  var date = (this["FechaDisposicion"].split('T'))[0].split('-').reverse().join('/');
+  emit(date,1);
+  emit(this["FechaBOJA"],1);
+}
+
+reduce:
+sumas los cant y emitir (fecha,cant)
+
+var reduce3 = function(key,values){
+  return Array.sum(values)
+}
+
+db.disposiciones.mapReduce(map3,reduce3,{out: parte2c})
+
+y de ese resultado quedarnos con el maximo.
+db.parte2c.find().sort({value : -1}).limit(1)
+
+d-La mayor cantidad de paginas usadas por cada tipo de disposicion.
+IDEA:
+map: emitir(tipo,cantPaginas)
+
+var map4 = function(){
+  var cantPags = this["PaginaFinal"] - this["PaginaInicial"] + 1
+  emit(this["Tipo"],cantPags)
+}
+
+reduce:
+buscar el maximo entre todos los cantPaginas q nos llega y emitir (tipo,maxCantPaginas)
+
+var reduce4 = function(key,values){
+  var cantPagsMax = 0;
+  for (var i=0; i < values.length; i++){
+    if(values[i] > cantPagsMax){
+      cantPagsMax = values[i];
+    }
+  }
+  return(cantPagsMax);
+}
+
+#######################################################################################################################
+
+#######################################################################################################################
+
+Parte 3, Sharding:
+
+Levantamos cinco shards siguiendo las instrucciones del archivo
+tutorial_sharding.txt.
+
+Luego creamos un indice simple sobre el atributo codigo_postal.
+
+Luego utilizamos importamos el codigo de insert_data.js donde tenemos
+funciones que nos permiten ingresar datos de a 20k y pedir las estadisticas
+y nos guardamos las estadisticas en archivos .txt aparte. Los mismos se encuentran en
+la carpeta mediciones.
+
+
+#######################################################################################################################
+
+#######################################################################################################################
+
+Parte 4
+=======
+
+Base de datos key-value, usando el motor redis.
+Redis permite el uso de namespaces (tener varios "diccionarios", la terminología de redis para esto sería "multiple databases"), lo cual hace el diseño más prolijo y simple.
+
+Usar map-reduce en redis no es algo built-in ni estandar, pero investigamos y es posible, por
+    ejemplo, integrarlo con Hadoop.
+
+Parte1:
+    1a:
+        En redis hay un comando SCAN que permite iterar las claves.
+        Con esto podemos iterar un diccionario de empleados, donde en cada
+            value hay una lista de datos de cada cliente que atendió.
+        Entonces se puede iterar las claves una por una y quedarse con las que
+            tienen algun cliente mayor de edad.
+    1b:
+        Usando SCAN se puede iterar las claves de un diccionario
+        articulos -> ventas. Mediante codigo se buscan las claves que tengan
+        |ventas| maximo.
+
+    1c:
+        Idem usando SCAN. Si tenemos un diccionario sector -> [empleados], es cuestion
+            de iterar y mediante código buscar cuando |empleados|==3
+
+    1d:
+        Un diccionario empleado -> [sectores]. Idem 1c usando SCAN.
+
+    1e:
+        Diccionario cliente  -> [compras]. Idem 1c, pero ordenando mediante |compras|.
+
+    1f:
+        Esta consulta ya es un poco más compleja, hay varios enfoques posibles.
+        Uno es mantener las cosas simples y directamente usar un diccionario
+            edad -> cantidadDeCompras. Por ser tan específico, es un diccionario
+            que sólo sirve para esta consulta, con lo cual estamos agregando
+            un costo de mantenimiento extra a la DB sólo por una query.
+        Otra opción es valerse de map reduce y usar alguno de los otros diccionarios,
+            como el de 1a. Como ventaja, la consulta es simple y no hace falta crear un diccionario extra
+            solo por esta consulta.
+
+
+Parte 2:
+    Asumimos que se crea un id único para las disposiciones, podría ser un hash de sus datos o
+        la combinación (numeroBoja, paginaInicial, PaginaFinal) que asumimos que identifica
+        univocamente a la disposicion. Entonces se tiene un diccionario id -> disposicion.
+
+    Las resoluciones por map-reduce son prácticamente iguales a las versiones hechas en mongodb
+        ya que la entrada de la función map es practicamente la misma.
+
+Parte 3:
+    TODO: primero habría que hacerlo en mongodb jaja.
+
